@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
-import { storage } from '../lib/storage';
+import { fetchJournal, createJournalEntry as createJournalAPI, callAI } from '../lib/api';
 import { getTodayKey } from '../utils/time';
-import { callAI } from '../lib/api';
 
 const JOURNAL_SYSTEM = `Tu es le copilote de Nicolas. Reformule ce check-in en un court paragraphe de journal intime (3-4 phrases), chaleureux et encourageant. Garde le sens exact mais rends-le agréable à relire. Français. Pas de listes.`;
 
@@ -10,13 +9,11 @@ export function useJournal() {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    setEntries(storage.get("journal") || []);
-    setLoaded(true);
+    fetchJournal()
+      .then(data => setEntries(data))
+      .catch(err => console.error("Failed to fetch journal:", err))
+      .finally(() => setLoaded(true));
   }, []);
-
-  useEffect(() => {
-    if (loaded) storage.set("journal", entries);
-  }, [entries, loaded]);
 
   const todayEntry = entries.find(e => e.date === getTodayKey());
 
@@ -42,6 +39,9 @@ export function useJournal() {
       aiText,
       createdAt: new Date().toISOString(),
     };
+
+    // Save to Turso
+    await createJournalAPI(entry);
 
     setEntries(prev => {
       const filtered = prev.filter(e => e.date !== entry.date);

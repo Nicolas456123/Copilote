@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { storage } from '../lib/storage';
+import { fetchStreak, updateStreak } from '../lib/api';
 import { getTodayKey } from '../utils/time';
 
 export function useStreak() {
@@ -8,9 +8,13 @@ export function useStreak() {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    setStreak(storage.get("streak") || 0);
-    setLastDate(storage.get("lastDate") || "");
-    setLoaded(true);
+    fetchStreak()
+      .then(data => {
+        setStreak(data.currentStreak || 0);
+        setLastDate(data.lastDate || "");
+        setLoaded(true);
+      })
+      .catch(() => setLoaded(true));
   }, []);
 
   useEffect(() => {
@@ -18,18 +22,12 @@ export function useStreak() {
     const today = getTodayKey();
     if (lastDate !== today) {
       const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
-      if (lastDate === yesterday) setStreak(s => s + 1);
-      else setStreak(1);
+      const newStreak = lastDate === yesterday ? streak + 1 : 1;
+      setStreak(newStreak);
       setLastDate(today);
+      updateStreak({ currentStreak: newStreak, lastDate: today });
     }
   }, [loaded]);
-
-  useEffect(() => {
-    if (loaded) {
-      storage.set("streak", streak);
-      storage.set("lastDate", lastDate);
-    }
-  }, [streak, lastDate, loaded]);
 
   return { streak };
 }

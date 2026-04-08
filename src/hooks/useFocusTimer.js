@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { storage } from '../lib/storage';
+import { saveFocusSession } from '../lib/api';
 import { getTodayKey } from '../utils/time';
 
 export function useFocusTimer() {
@@ -31,15 +31,13 @@ export function useFocusTimer() {
 
   const stopFocus = useCallback(() => {
     if (focusTime > 0 && focusTask) {
-      const sessions = storage.get("focusSessions") || [];
-      sessions.push({
+      saveFocusSession({
         id: `fs-${Date.now()}`,
         projectId: focusTask.projectId,
         stepId: focusTask.id,
         duration: focusTime,
         date: getTodayKey(),
       });
-      storage.set("focusSessions", sessions);
     }
     setFocusRunning(false);
     setFocusTask(null);

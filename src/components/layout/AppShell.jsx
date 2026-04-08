@@ -1,7 +1,9 @@
+import { useEffect, useRef } from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from './Header';
 import BottomNav from './BottomNav';
 import Spinner from '../ui/Spinner';
+import { initDB } from '../../lib/api';
 import { useProjects } from '../../hooks/useProjects';
 import { useHabits } from '../../hooks/useHabits';
 import { useStreak } from '../../hooks/useStreak';
@@ -12,6 +14,14 @@ import { useAI } from '../../hooks/useAI';
 import { useXP } from '../../hooks/useXP';
 
 export default function AppShell() {
+  const initDone = useRef(false);
+  useEffect(() => {
+    if (!initDone.current) {
+      initDone.current = true;
+      initDB().catch(() => {});
+    }
+  }, []);
+
   const projectsHook = useProjects();
   const habitsHook = useHabits();
   const { streak } = useStreak();
