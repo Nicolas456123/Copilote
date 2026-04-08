@@ -89,3 +89,20 @@ export async function fetchFocusSessions() {
 export async function saveFocusSession(data) {
   return request("/focus", { method: "POST", body: JSON.stringify(data) });
 }
+
+// Weekly Plan
+export async function fetchWeeklyPlan() {
+  return request("/plan");
+}
+
+export async function generateWeeklyPlan() {
+  return request("/plan", { method: "POST", body: JSON.stringify({ action: "generate" }) });
+}
+
+export async function updateTaskStatus(id, status) {
+  return request("/plan", { method: "PUT", body: JSON.stringify({ id, status }) });
+}
+
+export async function rescheduleTask(taskId, newDay) {
+  return request("/plan", { method: "POST", body: JSON.stringify({ action: "reschedule", taskId, newDay }) });
+}

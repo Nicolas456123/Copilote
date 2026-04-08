@@ -48,6 +48,19 @@ CREATE TABLE IF NOT EXISTS streaks (
   current_streak INTEGER DEFAULT 0,
   last_date TEXT DEFAULT ''
 );
+
+CREATE TABLE IF NOT EXISTS weekly_tasks (
+  id TEXT PRIMARY KEY,
+  week_id TEXT NOT NULL,
+  project_id TEXT,
+  project_name TEXT,
+  domain TEXT,
+  task_text TEXT NOT NULL,
+  day TEXT,
+  status TEXT DEFAULT 'todo',
+  sort_order INTEGER DEFAULT 0,
+  created_at TEXT DEFAULT (datetime('now'))
+);
 `;
 
 const DEFAULT_PROJECTS = [

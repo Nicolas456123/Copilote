@@ -6,6 +6,7 @@ import DomainsOverview from '../components/copilot/DomainsOverview';
 import QuickLinks from '../components/copilot/QuickLinks';
 import WeeklyGraph from '../components/dashboard/WeeklyGraph';
 import ProgressionCard from '../components/dashboard/ProgressionCard';
+import DailyPlan from '../components/dashboard/DailyPlan';
 import { useXP } from '../hooks/useXP';
 
 export default function AccueilPage() {
@@ -23,6 +24,17 @@ export default function AccueilPage() {
         aiLoading={ctx.aiLoading}
         askAI={ctx.askAI}
         aiPlanWeek={ctx.aiPlanWeek}
+      />
+      <DailyPlan
+        todayTasks={ctx.todayTasks}
+        overdueTasks={ctx.overdueTasks}
+        upcomingTasks={ctx.upcomingTasks}
+        loading={ctx.loading}
+        generate={ctx.generate}
+        markDone={ctx.markDone}
+        markSkipped={ctx.markSkipped}
+        postpone={ctx.postpone}
+        hasPlan={ctx.tasks?.length > 0}
       />
       <WeekFocus focusProjects={ctx.focusProjects} />
       <ProgressionCard xp={xp} level={level} xpInLevel={xpInLevel} xpProgress={xpProgress} />
