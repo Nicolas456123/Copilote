@@ -82,7 +82,7 @@ export default function ProjectCard({
           />
 
           {msg && (
-            <div className="relative px-3 py-2.5 rounded-lg mb-2.5 bg-gradient-to-br from-navy to-[#5A5F7A] text-xs text-white leading-relaí animate-fade-in">
+            <div className="relative px-3 py-2.5 rounded-lg mb-2.5 bg-gradient-to-br from-navy to-[#5A5F7A] text-xs text-white leading-relaxed animate-fade-in">
               <button onClick={onClearMsg} className="absolute top-1 right-1.5 bg-none border-none text-white/30 text-xs cursor-pointer">×</button>
               🤖 {msg}
             </div>

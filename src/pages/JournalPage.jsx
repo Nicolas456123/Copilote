@@ -75,7 +75,7 @@ export default function JournalPage() {
                   <span key={t} className="px-2 py-0.5 rounded-full bg-sage/15 text-sage text-[10px] font-semibold">{t}</span>
                 ))}
               </div>
-              <p className="text-[13px] text-navy leading-relaí">{todayEntry.aiText}</p>
+              <p className="text-[13px] text-navy leading-relaxed">{todayEntry.aiText}</p>
               <button
                 onClick={resetForm}
                 className="mt-3 text-[11px] text-coral bg-none border-none cursor-pointer font-nunito"
@@ -95,7 +95,7 @@ export default function JournalPage() {
                   <span key={t} className="px-2 py-0.5 rounded-full bg-sage/15 text-sage text-[10px] font-semibold">{t}</span>
                 ))}
               </div>
-              <p className="text-[13px] text-navy leading-relaí">{result.aiText}</p>
+              <p className="text-[13px] text-navy leading-relaxed">{result.aiText}</p>
             </Card>
           ) : (
             <div className="flex flex-col gap-4">
@@ -157,7 +157,7 @@ export default function JournalPage() {
                   <span key={t} className="px-2 py-0.5 rounded-full bg-sage/15 text-sage text-[10px] font-semibold">{t}</span>
                 ))}
               </div>
-              <p className="text-[13px] text-navy leading-relaí">{selectedEntry.aiText}</p>
+              <p className="text-[13px] text-navy leading-relaxed">{selectedEntry.aiText}</p>
             </Card>
           )}
 

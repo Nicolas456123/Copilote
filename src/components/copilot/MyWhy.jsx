@@ -25,7 +25,7 @@ export default function MyWhy({ myWhy, setMyWhy }) {
           </div>
         </div>
       ) : myWhy ? (
-        <div onClick={startEdit} className="text-[13px] text-navy leading-relaí cursor-pointer">"{myWhy}"</div>
+        <div onClick={startEdit} className="text-[13px] text-navy leading-relaxed cursor-pointer">"{myWhy}"</div>
       ) : (
         <button
           onClick={startEdit}

@@ -10,7 +10,7 @@ export default function CopilotCard({ aiMsg, aiLoading, askAI, aiPlanWeek }) {
     <div className="bg-gradient-to-br from-navy to-[#5A5F7A] rounded-2xl p-4.5 text-white shadow-lg">
       <div className="text-xs font-bold opacity-60 mb-1.5">🤖 COPILOTE IA</div>
       {aiMsg ? (
-        <div className="text-[13px] leading-relaí mb-2.5 animate-fade-in">{aiMsg}</div>
+        <div className="text-[13px] leading-relaxed mb-2.5 animate-fade-in">{aiMsg}</div>
       ) : (
         <div className="text-[13px] opacity-70 mb-2.5">Je connais tous tes projets. Demande-moi ce que tu veux.</div>
       )}
