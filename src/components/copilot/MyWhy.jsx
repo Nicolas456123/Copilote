@@ -16,7 +16,7 @@ export default function MyWhy({ myWhy, setMyWhy }) {
           <textarea
             value={draft}
             onChange={e => setDraft(e.target.value)}
-            placeholder="Pourquoi tu fais tout \u00E7a ?"
+            placeholder="Pourquoi tu fais tout ça ?"
             className="w-full p-2.5 rounded-lg border border-gray-200 text-[13px] font-nunito resize-y min-h-[50px] outline-none focus:border-coral transition-colors"
           />
           <div className="flex gap-1.5">
@@ -31,7 +31,7 @@ export default function MyWhy({ myWhy, setMyWhy }) {
           onClick={startEdit}
           className="w-full p-2.5 rounded-lg border-2 border-dashed border-gray-200 bg-transparent text-gray-400 text-xs cursor-pointer font-nunito"
         >
-          + D\u00E9finis ton pourquoi
+          + Définis ton pourquoi
         </button>
       )}
     </Card>

@@ -27,7 +27,7 @@ export const DEFAULT_HABITS = [
   { id: "gym", label: "Salle de sport", icon: "🏋️", domain: "health", target: 3, unit: "/sem" },
   { id: "eat", label: "Repas équilibré", icon: "🥗", domain: "health" },
   { id: "learn", label: "Apprendre quelque chose", icon: "📖", domain: "learning" },
-  { id: "create", label: "Cr\u00E9er (code/musique/jeu)", icon: "🎨", domain: "gamedev" },
+  { id: "create", label: "Créer (code/musique/jeu)", icon: "🎨", domain: "gamedev" },
   { id: "sleep", label: "Couché avant 23h", icon: "🌙", domain: "health" },
 ];
 
@@ -37,7 +37,7 @@ export const NICOLAS_CONTEXT = `Tu es le copilote de vie de Nicolas. Il est ing�
 - 🏗️ ChantierHub : un outil de gestion de chantier déjà bien avancé
 - 📚 Apprentissage : app Curiosita, langues (italien + allemand), code moto, culture générale et sciences
 - 💪 Santé : salle de sport 3x/semaine, réveil 6-7h, alimentation (app MiamWeek)
-Il se sent souvent d\u00E9bordé et d\u00E9couragé par l'ampleur de tout \u00E7a, mais il refuse de l\u00E2cher. Il a tendance à s'hyperfocaliser et à se coucher tard. Il a la flemme des corv\u00E9es. Ton rôle : l'aider à avancer sans se noyer, le motiver, le cadrer, et lui rappeler que chaque petit pas compte. Sois concis (3-5 phrases max), chaleureux, direct. Fran\u00E7ais. Pas de listes à puces.`;
+Il se sent souvent débordé et découragé par l'ampleur de tout ça, mais il refuse de lâcher. Il a tendance à s'hyperfocaliser et à se coucher tard. Il a la flemme des corvées. Ton rôle : l'aider à avancer sans se noyer, le motiver, le cadrer, et lui rappeler que chaque petit pas compte. Sois concis (3-5 phrases max), chaleureux, direct. Français. Pas de listes à puces.`;
 
 export const MOOD_OPTIONS = [
   { emoji: "🔥", label: "En feu", value: 5 },
@@ -49,12 +49,12 @@ export const MOOD_OPTIONS = [
 
 export const REASON_TAGS = {
   positive: [
-    "Journ\u00E9e productive",
+    "Journée productive",
     "Progrès sur un projet",
-    "Bonne s\u00E9ance sport",
+    "Bonne séance sport",
     "Bien dormi",
     "Mangé équilibré",
-    "Moment cr\u00E9atif",
+    "Moment créatif",
   ],
   negative: [
     "Procrastination",
@@ -66,7 +66,7 @@ export const REASON_TAGS = {
   ],
   neutral: [
     "Routine",
-    "Journ\u00E9e normale",
+    "Journée normale",
     "Travail chargé",
     "Repos mérité",
   ],

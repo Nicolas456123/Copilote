@@ -104,7 +104,7 @@ export default function ProjectCard({
 
           {totalC === 0 && !loading && (
             <div className="text-center py-3 text-gray-300 text-xs">
-              Clique "🔪 D\u00E9couper" pour structurer ce projet avec l'IA
+              Clique "🔪 Découper" pour structurer ce projet avec l'IA
             </div>
           )}
 

@@ -115,7 +115,7 @@ export default function JournalPage() {
                   <textarea
                     value={customText}
                     onChange={e => setCustomText(e.target.value)}
-                    placeholder="Un mot, une pens\u00E9e, un détail…"
+                    placeholder="Un mot, une pensée, un détail…"
                     maxLength={500}
                     className="w-full p-2.5 rounded-lg border border-gray-200 text-[13px] font-nunito resize-y min-h-[60px] outline-none focus:border-coral transition-colors"
                   />
@@ -164,14 +164,14 @@ export default function JournalPage() {
           {entries.length === 0 && (
             <Card>
               <div className="text-center text-gray-300 py-4 text-[13px]">
-                Aucune entr\u00E9e pour le moment. Fais ton premier check-in !
+                Aucune entrée pour le moment. Fais ton premier check-in !
               </div>
             </Card>
           )}
 
           {entries.length > 0 && (
             <div className="flex flex-col gap-2">
-              <div className="text-xs font-bold text-navy">📖 DERNIÈRES ENTR\u00C9ES</div>
+              <div className="text-xs font-bold text-navy">📖 DERNIÈRES ENTRÉES</div>
               {entries.slice(0, 10).map(e => (
                 <Card key={e.id} className="cursor-pointer hover:shadow-md transition-shadow" onClick={() => setSelectedEntry(e)}>
                   <div className="flex items-center gap-2">

@@ -14,7 +14,7 @@ export default function TaskSelector({ projects, focusProjects, onSelectTask }) 
   if (tasks.length === 0) {
     return (
       <div className="text-center text-gray-300 py-5 text-[13px]">
-        Structure tes projets d'abord (🔪 D\u00E9couper)
+        Structure tes projets d'abord (🔪 Découper)
       </div>
     );
   }

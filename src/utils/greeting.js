@@ -3,7 +3,7 @@ export function getGreeting() {
   if (h < 6) return "Tu devrais dormir 😴";
   if (h < 12) return "Bonjour Nicolas ☀️";
   if (h < 18) return "Bon après-midi 💪";
-  if (h < 22) return "Bonne soir\u00E9e 🌙";
+  if (h < 22) return "Bonne soirée 🌙";
   return "Il se fait tard… 🌙";
 }
 

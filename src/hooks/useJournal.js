@@ -3,7 +3,7 @@ import { storage } from '../lib/storage';
 import { getTodayKey } from '../utils/time';
 import { callAI } from '../lib/api';
 
-const JOURNAL_SYSTEM = `Tu es le copilote de Nicolas. Reformule ce check-in en un court paragraphe de journal intime (3-4 phrases), chaleureux et encourageant. Garde le sens exact mais rends-le agr\u00E9able à relire. Fran\u00E7ais. Pas de listes.`;
+const JOURNAL_SYSTEM = `Tu es le copilote de Nicolas. Reformule ce check-in en un court paragraphe de journal intime (3-4 phrases), chaleureux et encourageant. Garde le sens exact mais rends-le agréable à relire. Français. Pas de listes.`;
 
 export function useJournal() {
   const [entries, setEntries] = useState([]);

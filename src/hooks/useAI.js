@@ -54,13 +54,13 @@ export function useAI({ projects, habitsToday, habitsTotal, gymThisWeek, streak,
     setAiAction(`${project.id}:breakdown`);
     try {
       const names = await callAIJSON(SYS_JSON,
-        `D\u00E9coupe ce projet en 5-8 étapes clés concrètes et chronologiques.\nProjet : "${project.name}" (domaine: ${DOMAINS[project.domain]?.label})`
+        `Découpe ce projet en 5-8 étapes clés concrètes et chronologiques.\nProjet : "${project.name}" (domaine: ${DOMAINS[project.domain]?.label})`
       );
       const steps = names.map((s, i) => ({ id: `${project.id}-${Date.now()}-${i}`, text: s, done: false }));
       setAiAction(null);
       return steps;
     } catch {
-      setProjMsg(prev => ({ ...prev, [project.id]: "Erreur, r\u00E9essaye !" }));
+      setProjMsg(prev => ({ ...prev, [project.id]: "Erreur, réessaye !" }));
       setAiAction(null);
       return null;
     }
@@ -70,13 +70,13 @@ export function useAI({ projects, habitsToday, habitsTotal, gymThisWeek, streak,
     setAiAction(`${project.id}:detail`);
     try {
       const subs = await callAIJSON(SYS_JSON,
-        `D\u00E9coupe cette étape en 3-5 sous-étapes concrètes.\nProjet: "${project.name}"\nÉtape: "${step.text}"`
+        `Découpe cette étape en 3-5 sous-étapes concrètes.\nProjet: "${project.name}"\nÉtape: "${step.text}"`
       );
       const subSteps = subs.map((s, i) => ({ id: `sub${Date.now()}-${i}`, text: s, done: false }));
       setAiAction(null);
       return subSteps;
     } catch {
-      setProjMsg(prev => ({ ...prev, [project.id]: "Erreur, r\u00E9essaye !" }));
+      setProjMsg(prev => ({ ...prev, [project.id]: "Erreur, réessaye !" }));
       setAiAction(null);
       return null;
     }
@@ -94,7 +94,7 @@ export function useAI({ projects, habitsToday, habitsTotal, gymThisWeek, streak,
       );
       setProjMsg(prev => ({ ...prev, [project.id]: text }));
     } catch {
-      setProjMsg(prev => ({ ...prev, [project.id]: "Erreur, r\u00E9essaye !" }));
+      setProjMsg(prev => ({ ...prev, [project.id]: "Erreur, réessaye !" }));
     }
     setAiAction(null);
   }, []);
