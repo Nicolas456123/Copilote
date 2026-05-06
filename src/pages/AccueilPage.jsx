@@ -27,6 +27,7 @@ export default function AccueilPage() {
         askAI={ctx.askAI}
         aiPlanWeek={ctx.aiPlanWeek}
       />
+      <PitchTraining />
       <DailyPlan
         todayTasks={ctx.todayTasks}
         overdueTasks={ctx.overdueTasks}
@@ -40,7 +41,6 @@ export default function AccueilPage() {
       />
       <WeekFocus focusProjects={ctx.focusProjects} />
       <MansonValues />
-      <PitchTraining />
       <ProgressionCard xp={xp} level={level} xpInLevel={xpInLevel} xpProgress={xpProgress} />
       <WeeklyGraph
         weekDates={ctx.weekDates}
