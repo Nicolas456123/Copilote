@@ -58,3 +58,28 @@ export function playPianoNote(frequency = 440, durationSec = 2.2) {
 export function playA440() {
   playPianoNote(440, 2.2);
 }
+
+export function noteFromSemitone(offsetFromA4) {
+  return 440 * Math.pow(2, offsetFromA4 / 12);
+}
+
+export const NOTES_AROUND_A4 = [
+  { name: "Fa",  short: "F",  offset: -4, sharp: false },
+  { name: "Fa#", short: "F#", offset: -3, sharp: true  },
+  { name: "Sol", short: "G",  offset: -2, sharp: false },
+  { name: "Sol#",short: "G#", offset: -1, sharp: true  },
+  { name: "La",  short: "A",  offset:  0, sharp: false, target: true },
+  { name: "La#", short: "A#", offset:  1, sharp: true  },
+  { name: "Si",  short: "B",  offset:  2, sharp: false },
+  { name: "Do",  short: "C",  offset:  3, sharp: false },
+  { name: "Do#", short: "C#", offset:  4, sharp: true  },
+  { name: "Ré",  short: "D",  offset:  5, sharp: false },
+];
+
+export function ecartLabel(semitones) {
+  const abs = Math.abs(semitones);
+  if (abs === 0) return "Juste";
+  if (abs === 1) return "1/2 ton";
+  if (abs % 2 === 0) return `${abs / 2} ton${abs > 2 ? "s" : ""}`;
+  return `${(abs / 2).toFixed(1)} tons`;
+}
