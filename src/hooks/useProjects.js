@@ -1,5 +1,9 @@
 import { useState, useEffect, useCallback } from 'react';
 import { fetchProjects, createProject as createProjectAPI, updateProject, deleteProjectAPI } from '../lib/api';
+import {
+  normalizeTree, updateStepById, removeStepById,
+  addChildToStep, addChildrenToStep, replaceChildrenOfStep, makeStepId,
+} from '../utils/stepTree';
 
 export function useProjects() {
   const [projects, setProjects] = useState([]);
@@ -9,8 +13,9 @@ export function useProjects() {
   useEffect(() => {
     fetchProjects()
       .then(data => {
-        setProjects(data);
-        setWeekFocus(data.filter(p => p.weekFocus).map(p => p.id));
+        const normalized = data.map(p => ({ ...p, steps: normalizeTree(p.steps) }));
+        setProjects(normalized);
+        setWeekFocus(normalized.filter(p => p.weekFocus).map(p => p.id));
       })
       .catch(err => console.error("Failed to fetch projects:", err))
       .finally(() => setLoaded(true));
@@ -20,12 +25,30 @@ export function useProjects() {
     updateProject({ id, ...updates }).catch(err => console.error("Sync error:", err));
   }, []);
 
-  const addProject = useCallback((domain, name) => {
-    if (!name.trim()) return;
+  const mutateProjectSteps = useCallback((pid, mutator) => {
+    setProjects(prev => {
+      const updated = prev.map(p => p.id === pid ? { ...p, steps: mutator(p.steps) } : p);
+      const project = updated.find(p => p.id === pid);
+      if (project) syncProject(pid, { steps: project.steps });
+      return updated;
+    });
+  }, [syncProject]);
+
+  const addProject = useCallback((domain, name, opts = {}) => {
+    if (!name.trim()) return null;
     const id = Date.now().toString();
-    const newProject = { id, domain, name: name.trim(), steps: [], link: "", weekFocus: false };
+    const steps = normalizeTree(opts.steps || []);
+    const newProject = {
+      id,
+      domain,
+      name: name.trim(),
+      steps,
+      link: opts.link || "",
+      weekFocus: false,
+    };
     setProjects(prev => [...prev, newProject]);
-    createProjectAPI({ id, domain, name: name.trim(), link: "", steps: [] });
+    createProjectAPI({ id, domain, name: name.trim(), link: newProject.link, steps });
+    return id;
   }, []);
 
   const deleteProject = useCallback((id) => {
@@ -34,82 +57,47 @@ export function useProjects() {
   }, []);
 
   const toggleStep = useCallback((pid, sid) => {
-    setProjects(prev => {
-      const updated = prev.map(p =>
-        p.id === pid ? { ...p, steps: p.steps.map(s => s.id === sid ? { ...s, done: !s.done } : s) } : p
-      );
-      const project = updated.find(p => p.id === pid);
-      if (project) syncProject(pid, { steps: project.steps });
-      return updated;
-    });
-  }, [syncProject]);
+    mutateProjectSteps(pid, steps =>
+      updateStepById(steps, sid, s => ({ ...s, done: !s.done }))
+    );
+  }, [mutateProjectSteps]);
 
   const deleteStep = useCallback((pid, sid) => {
-    setProjects(prev => {
-      const updated = prev.map(p =>
-        p.id === pid ? { ...p, steps: p.steps.filter(s => s.id !== sid) } : p
-      );
-      const project = updated.find(p => p.id === pid);
-      if (project) syncProject(pid, { steps: project.steps });
-      return updated;
-    });
-  }, [syncProject]);
+    mutateProjectSteps(pid, steps => removeStepById(steps, sid));
+  }, [mutateProjectSteps]);
 
-  const addStep = useCallback((pid, text) => {
+  const addStep = useCallback((pid, text, parentId = null) => {
     if (!text.trim()) return;
-    setProjects(prev => {
-      const updated = prev.map(p =>
-        p.id === pid ? { ...p, steps: [...p.steps, { id: `s${Date.now()}`, text: text.trim(), done: false }] } : p
-      );
-      const project = updated.find(p => p.id === pid);
-      if (project) syncProject(pid, { steps: project.steps });
-      return updated;
-    });
-  }, [syncProject]);
+    const child = { id: makeStepId(), text: text.trim(), done: false, children: [] };
+    mutateProjectSteps(pid, steps => addChildToStep(steps, parentId, child));
+  }, [mutateProjectSteps]);
 
-  const addSteps = useCallback((pid, steps) => {
-    setProjects(prev => {
-      const updated = prev.map(p =>
-        p.id === pid ? { ...p, steps: [...p.steps, ...steps] } : p
-      );
-      const project = updated.find(p => p.id === pid);
-      if (project) syncProject(pid, { steps: project.steps });
-      return updated;
-    });
-  }, [syncProject]);
+  const addSteps = useCallback((pid, newSteps, parentId = null) => {
+    mutateProjectSteps(pid, steps => addChildrenToStep(steps, parentId, newSteps));
+  }, [mutateProjectSteps]);
 
   const insertStepsAfter = useCallback((pid, afterStepId, newSteps) => {
-    setProjects(prev => {
-      const updated = prev.map(p => {
-        if (p.id !== pid) return p;
-        const idx = p.steps.findIndex(s => s.id === afterStepId);
-        const ns = [...p.steps];
-        ns.splice(idx + 1, 0, ...newSteps);
-        return { ...p, steps: ns };
-      });
-      const project = updated.find(p => p.id === pid);
-      if (project) syncProject(pid, { steps: project.steps });
-      return updated;
-    });
-  }, [syncProject]);
+    mutateProjectSteps(pid, steps => addChildrenToStep(steps, afterStepId, newSteps));
+  }, [mutateProjectSteps]);
+
+  const replaceChildren = useCallback((pid, parentId, newChildren) => {
+    mutateProjectSteps(pid, steps => replaceChildrenOfStep(steps, parentId, newChildren));
+  }, [mutateProjectSteps]);
 
   const replaceUndoneSteps = useCallback((pid, newSteps) => {
-    setProjects(prev => {
-      const updated = prev.map(p => {
-        if (p.id !== pid) return p;
-        const doneSteps = p.steps.filter(s => s.done);
-        return { ...p, steps: [...doneSteps, ...newSteps] };
+    mutateProjectSteps(pid, steps => {
+      const done = (steps || []).filter(s => {
+        const isLeafDone = (!s.children || s.children.length === 0) && s.done;
+        const allChildrenDone = s.children?.length > 0 && s.children.every(c => c.done);
+        return isLeafDone || allChildrenDone;
       });
-      const project = updated.find(p => p.id === pid);
-      if (project) syncProject(pid, { steps: project.steps });
-      return updated;
+      return [...done, ...normalizeTree(newSteps)];
     });
-  }, [syncProject]);
+  }, [mutateProjectSteps]);
 
   const toggleWeekFocus = useCallback((id) => {
     setWeekFocus(prev => {
       const newFocus = prev.includes(id) ? prev.filter(x => x !== id) : prev.length < 3 ? [...prev, id] : prev;
-      // Sync all projects' week_focus
       setProjects(current => {
         current.forEach(p => {
           const shouldFocus = newFocus.includes(p.id);
@@ -129,6 +117,7 @@ export function useProjects() {
     projects, setProjects, loaded,
     weekFocus, focusProjects, toggleWeekFocus,
     addProject, deleteProject,
-    toggleStep, deleteStep, addStep, addSteps, insertStepsAfter, replaceUndoneSteps,
+    toggleStep, deleteStep, addStep, addSteps, insertStepsAfter,
+    replaceChildren, replaceUndoneSteps,
   };
 }

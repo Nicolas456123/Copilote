@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useOutletContext } from 'react-router-dom';
 import DomainFilter from '../components/projects/DomainFilter';
 import ProjectCard from '../components/projects/ProjectCard';
+import CreateProjectAI from '../components/projects/CreateProjectAI';
 import { DOMAINS } from '../lib/constants';
 import { domainProjects } from '../utils/progress';
 
@@ -20,6 +21,16 @@ export default function ProjetsPage() {
     }
   };
 
+  const handleAICreate = async (idea, preview = null) => {
+    if (preview) {
+      const newId = ctx.addProject(preview.domain, preview.name, { steps: preview.steps });
+      setSelectedDomain(preview.domain);
+      setExpandedProject(newId);
+      return null;
+    }
+    return await ctx.aiCreateProject(idea);
+  };
+
   const handleBreakdown = async (p) => {
     const steps = await ctx.aiBreakdown(p);
     if (steps) ctx.addSteps(p.id, steps);
@@ -27,11 +38,16 @@ export default function ProjetsPage() {
 
   const handleDetailStep = async (p, step) => {
     const subs = await ctx.aiDetailStep(p, step);
-    if (subs) ctx.insertStepsAfter(p.id, step.id, subs);
+    if (subs) ctx.replaceChildren(p.id, step.id, [...(step.children || []), ...subs]);
   };
 
   const handleReorganize = async (p) => {
     const newSteps = await ctx.aiReorganize(p);
+    if (newSteps) ctx.replaceUndoneSteps(p.id, newSteps);
+  };
+
+  const handleCustomModify = async (p, instruction) => {
+    const newSteps = await ctx.aiCustomModify(p, instruction);
     if (newSteps) ctx.replaceUndoneSteps(p.id, newSteps);
   };
 
@@ -40,6 +56,11 @@ export default function ProjetsPage() {
   return (
     <div className="flex flex-col gap-3">
       <DomainFilter selected={selectedDomain} onSelect={setSelectedDomain} />
+
+      <CreateProjectAI
+        onCreate={handleAICreate}
+        loading={ctx.isActionLoading('new', 'create')}
+      />
 
       {domains.map(domKey => {
         const dp = domainProjects(domKey, ctx.projects);
@@ -71,6 +92,7 @@ export default function ProjetsPage() {
                 onUnblock={() => ctx.aiProjectAction(p, "unblock", "Je bloque. Identifie ce qui coince et propose une solution.")}
                 onCelebrate={() => ctx.aiProjectAction(p, "celebrate", "Félicite-moi pour mon avancement !")}
                 onDetailStep={handleDetailStep}
+                onCustomModify={(instruction) => handleCustomModify(p, instruction)}
                 isActionLoading={ctx.isActionLoading}
                 projMsg={ctx.projMsg[p.id]}
                 onClearMsg={() => ctx.clearProjMsg(p.id)}
@@ -104,7 +126,7 @@ export default function ProjetsPage() {
             onClick={() => setShowAddProject(true)}
             className="p-2.5 rounded-lg border-2 border-dashed border-line bg-transparent text-ink-muted text-sm cursor-pointer font-nunito hover:border-sage hover:text-sage transition-colors"
           >
-            + Ajouter un projet
+            + Ajouter manuellement
           </button>
         )
       )}
