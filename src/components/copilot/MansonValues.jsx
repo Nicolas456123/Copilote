@@ -103,7 +103,7 @@ export default function MansonValues() {
               <div
                 key={v.id}
                 onClick={() => setOpenFalseId(isOpen ? null : v.id)}
-                className="rounded-xl p-2.5 cursor-pointer transition-all bg-[#faf5f2]"
+                className="rounded-xl p-2.5 cursor-pointer transition-all bg-surface-2"
                 style={{ borderLeft: "3px solid #c0392b" }}
               >
                 <div className="flex items-center gap-2">
