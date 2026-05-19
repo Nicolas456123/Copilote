@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Card from '../ui/Card';
 import { useReminders, REMINDER_TYPES } from '../../hooks/useReminders';
 import { requestPermission } from '../../lib/notifications';
+import { downloadICS } from '../../lib/icsExport';
 
 function PermissionBanner({ permission, onAsk }) {
   if (permission === 'granted') {
@@ -173,8 +174,25 @@ export default function RemindersCard() {
             />
           ))}
 
+          <div className="mt-3 pt-3 border-t border-gray-100">
+            <div className="text-[11px] font-bold text-navy mb-1.5">📱 iPhone — rappels fiables</div>
+            <div className="text-[10px] text-gray-500 leading-relaxed mb-2">
+              Safari ne déclenche pas les notifications web quand l'app est fermée. Exporte tes horaires vers le <b>Calendrier iPhone</b> : il te donnera de vraies notifications natives chaque jour.
+            </div>
+            <button
+              onClick={() => downloadICS(state)}
+              disabled={enabledCount === 0}
+              className="w-full py-2 rounded-xl border-none bg-sage text-white text-[12px] font-semibold cursor-pointer font-nunito disabled:opacity-40"
+            >
+              📅 Télécharger pour Calendrier iPhone (.ics)
+            </button>
+            <div className="text-[10px] text-gray-400 leading-relaxed mt-2">
+              Ouvre le fichier sur ton iPhone → Calendrier propose d'ajouter les rappels récurrents. Refais-le si tu changes tes horaires.
+            </div>
+          </div>
+
           <div className="mt-3 pt-2 text-[10px] text-gray-400 leading-relaxed border-t border-gray-100">
-            Les rappels sonnent quand l'app est ouverte ou en arrière-plan. Installe l'app sur l'écran d'accueil pour qu'elle reste active.
+            Pense aussi à installer l'app : Safari → bouton Partager → "Sur l'écran d'accueil".
           </div>
         </div>
       )}
