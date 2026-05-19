@@ -13,7 +13,7 @@ export default function TaskSelector({ projects, focusProjects, onSelectTask }) 
 
   if (tasks.length === 0) {
     return (
-      <div className="text-center text-gray-300 py-5 text-[13px]">
+      <div className="text-center text-gray-300 py-5 text-[15px]">
         Structure tes projets d'abord (🔪 Découper)
       </div>
     );
@@ -25,12 +25,12 @@ export default function TaskSelector({ projects, focusProjects, onSelectTask }) 
         <button
           key={task.id}
           onClick={() => onSelectTask(task)}
-          className="p-3 px-4 rounded-xl border border-gray-100 bg-white text-[13px] font-semibold text-navy cursor-pointer text-left font-nunito flex items-center gap-2 hover:border-coral/30 hover:shadow-sm transition-all"
+          className="p-3 px-4 rounded-xl border border-gray-100 bg-white text-[15px] font-semibold text-navy cursor-pointer text-left font-nunito flex items-center gap-2 hover:border-coral/30 hover:shadow-sm transition-all"
         >
           <span>{DOMAINS[task.domain]?.icon}</span>
           <div className="flex-1">
             <div>{task.text}</div>
-            <div className="text-[10px] text-gray-400 font-normal">{task.projectName}</div>
+            <div className="text-[12px] text-gray-400 font-normal">{task.projectName}</div>
           </div>
         </button>
       ))}

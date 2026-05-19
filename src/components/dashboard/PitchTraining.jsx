@@ -31,7 +31,7 @@ function PianoKeyboard({ onPick, picked }) {
           <button
             key={n.offset}
             onClick={() => onPick(n)}
-            className={`flex-1 py-2 rounded-lg border-none text-[10px] font-bold cursor-pointer font-nunito transition-all ${n.sharp ? 'bg-navy text-white' : 'bg-[#f5f2ee] text-navy'}`}
+            className={`flex-1 py-2 rounded-lg border-none text-[12px] font-bold cursor-pointer font-nunito transition-all ${n.sharp ? 'bg-navy text-white' : 'bg-[#f5f2ee] text-navy'}`}
             style={{
               outline: isPicked ? '2px solid #E07A5F' : isTarget ? '2px solid #81B29A' : 'none',
               outlineOffset: isPicked || isTarget ? '-2px' : 0,
@@ -106,7 +106,7 @@ export default function PitchTraining() {
   return (
     <Card>
       <div className="flex items-center justify-between mb-2">
-        <div className="text-xs font-bold text-coral">🎹 OREILLE ABSOLUE — LA 440</div>
+        <div className="text-sm font-bold text-coral">🎹 OREILLE ABSOLUE — LA 440</div>
         <div className="flex gap-1">
           {dots.map((d, i) => (
             <div key={i} className="w-2.5 h-2.5 rounded-full" style={{ background: d.color }} />
@@ -114,7 +114,7 @@ export default function PitchTraining() {
         </div>
       </div>
 
-      <div className="text-[11px] text-gray-400 mb-2.5 leading-relaxed">
+      <div className="text-[13px] text-gray-400 mb-2.5 leading-relaxed">
         {done
           ? `✓ Fait pour aujourd'hui · ${validatedToday}/${todayCount} justes.`
           : `Entraîne ton cerveau ${target}× par jour. ${todayCount}/${target} aujourd'hui · ${validatedToday} justes.`}
@@ -122,7 +122,7 @@ export default function PitchTraining() {
 
       {flash && phase === 'idle' && (
         <div
-          className="text-[12px] text-center py-2 px-3 rounded-xl mb-2 animate-fade-in font-semibold"
+          className="text-[14px] text-center py-2 px-3 rounded-xl mb-2 animate-fade-in font-semibold"
           style={{ background: `${ecartColor(flash.ecart)}22`, color: ecartColor(flash.ecart) }}
         >
           {flash.result === 'validated'
@@ -134,7 +134,7 @@ export default function PitchTraining() {
       {phase === 'idle' && (
         <button
           onClick={startSession}
-          className="w-full py-2.5 rounded-xl border-none bg-navy text-white text-[13px] font-semibold cursor-pointer font-nunito"
+          className="w-full py-2.5 rounded-xl border-none bg-navy text-white text-[15px] font-semibold cursor-pointer font-nunito"
         >
           ▶ Démarrer une session
         </button>
@@ -142,20 +142,20 @@ export default function PitchTraining() {
 
       {phase === 'imagine' && (
         <div className="flex flex-col gap-2 animate-fade-in">
-          <div className="text-[12px] text-navy text-center py-3 px-2 bg-[#f5f2ee] rounded-xl leading-relaxed">
+          <div className="text-[14px] text-navy text-center py-3 px-2 bg-[#f5f2ee] rounded-xl leading-relaxed">
             Ferme les yeux. Imagine le <b>LA 440</b>.
             <br />Chante-le, hum-le.
           </div>
           <div className="flex gap-1.5">
             <button
               onClick={reveal}
-              className="flex-1 py-2.5 rounded-xl border-none bg-coral text-white text-[13px] font-semibold cursor-pointer font-nunito"
+              className="flex-1 py-2.5 rounded-xl border-none bg-coral text-white text-[15px] font-semibold cursor-pointer font-nunito"
             >
               🎹 Jouer le LA
             </button>
             <button
               onClick={cancel}
-              className="px-3 py-2.5 rounded-xl border border-gray-200 bg-transparent text-gray-400 text-xs cursor-pointer font-nunito"
+              className="px-3 py-2.5 rounded-xl border border-gray-200 bg-transparent text-gray-400 text-sm cursor-pointer font-nunito"
             >
               Annuler
             </button>
@@ -165,19 +165,19 @@ export default function PitchTraining() {
 
       {phase === 'compare' && (
         <div className="flex flex-col gap-2 animate-fade-in">
-          <div className="text-[12px] text-navy text-center py-2 px-2 bg-[#f5f2ee] rounded-xl leading-relaxed">
+          <div className="text-[14px] text-navy text-center py-2 px-2 bg-[#f5f2ee] rounded-xl leading-relaxed">
             Tu avais juste ? Sinon clique la note que tu pensais avoir.
           </div>
           <div className="flex gap-1.5">
             <button
               onClick={replay}
-              className="flex-1 py-2 rounded-xl border border-coral bg-transparent text-coral text-[12px] font-semibold cursor-pointer font-nunito"
+              className="flex-1 py-2 rounded-xl border border-coral bg-transparent text-coral text-[14px] font-semibold cursor-pointer font-nunito"
             >
               🔁 Rejouer
             </button>
             <button
               onClick={validateJust}
-              className="flex-1 py-2 rounded-xl border-none bg-sage text-white text-[12px] font-semibold cursor-pointer font-nunito"
+              className="flex-1 py-2 rounded-xl border-none bg-sage text-white text-[14px] font-semibold cursor-pointer font-nunito"
             >
               ✓ Juste !
             </button>
@@ -186,7 +186,7 @@ export default function PitchTraining() {
           {pickedNote !== null && (
             <div className="flex items-center gap-1.5 mt-1 animate-fade-in">
               <div
-                className="flex-1 text-[12px] text-center py-2 rounded-xl font-semibold"
+                className="flex-1 text-[14px] text-center py-2 rounded-xl font-semibold"
                 style={{
                   background: `${ecartColor(pickedNote)}22`,
                   color: ecartColor(pickedNote),
@@ -198,7 +198,7 @@ export default function PitchTraining() {
               </div>
               <button
                 onClick={confirmOff}
-                className="px-3 py-2 rounded-xl border-none bg-navy text-white text-[12px] font-semibold cursor-pointer font-nunito"
+                className="px-3 py-2 rounded-xl border-none bg-navy text-white text-[14px] font-semibold cursor-pointer font-nunito"
               >
                 Enregistrer
               </button>
@@ -206,7 +206,7 @@ export default function PitchTraining() {
           )}
           <button
             onClick={cancel}
-            className="text-[10px] text-gray-400 underline bg-transparent border-none cursor-pointer mt-1 font-nunito"
+            className="text-[12px] text-gray-400 underline bg-transparent border-none cursor-pointer mt-1 font-nunito"
           >
             Annuler la session
           </button>
@@ -217,7 +217,7 @@ export default function PitchTraining() {
         <div className="mt-3 pt-2.5 border-t border-gray-100">
           <button
             onClick={() => setShowHistory(s => !s)}
-            className="w-full text-left text-[11px] text-gray-500 font-semibold bg-transparent border-none cursor-pointer p-0 font-nunito"
+            className="w-full text-left text-[13px] text-gray-500 font-semibold bg-transparent border-none cursor-pointer p-0 font-nunito"
           >
             {showHistory ? '▾' : '▸'} Historique ({history.length})
           </button>
@@ -230,7 +230,7 @@ export default function PitchTraining() {
                 return (
                   <div
                     key={s.timestamp}
-                    className="flex items-center gap-2 text-[11px] py-1 px-2 rounded-lg bg-[#fafafa]"
+                    className="flex items-center gap-2 text-[13px] py-1 px-2 rounded-lg bg-[#fafafa]"
                   >
                     <span className="text-gray-400 tabular-nums">
                       {formatDate(s.timestamp)} {formatTime(s.timestamp)}
@@ -245,7 +245,7 @@ export default function PitchTraining() {
                     </span>
                     <button
                       onClick={() => removeSession(s.timestamp)}
-                      className="text-gray-300 text-[10px] bg-transparent border-none cursor-pointer hover:text-coral"
+                      className="text-gray-300 text-[12px] bg-transparent border-none cursor-pointer hover:text-coral"
                       title="Supprimer"
                     >
                       ×
@@ -256,7 +256,7 @@ export default function PitchTraining() {
               {history.length > 0 && (
                 <button
                   onClick={() => { if (confirm("Vider tout l'historique ?")) clearAll(); }}
-                  className="text-[10px] text-gray-300 underline bg-transparent border-none cursor-pointer mt-1 font-nunito self-end"
+                  className="text-[12px] text-gray-300 underline bg-transparent border-none cursor-pointer mt-1 font-nunito self-end"
                 >
                   Tout effacer
                 </button>

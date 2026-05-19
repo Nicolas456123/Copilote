@@ -15,7 +15,7 @@ export default function ReasonTags({ selected, onToggle }) {
 
   return (
     <div>
-      <div className="text-xs font-bold text-navy mb-2">Pourquoi ? <span className="font-normal text-gray-400">(plusieurs choix)</span></div>
+      <div className="text-sm font-bold text-navy mb-2">Pourquoi ? <span className="font-normal text-gray-400">(plusieurs choix)</span></div>
       <div className="flex flex-wrap gap-1.5">
         {allTags.map(tag => {
           const isSelected = selected.includes(tag.text);
@@ -24,7 +24,7 @@ export default function ReasonTags({ selected, onToggle }) {
             <button
               key={tag.text}
               onClick={() => onToggle(tag.text)}
-              className={`px-3 py-1.5 rounded-full text-[11px] font-semibold cursor-pointer font-nunito border-none transition-all ${
+              className={`px-3 py-1.5 rounded-full text-[13px] font-semibold cursor-pointer font-nunito border-none transition-all ${
                 isSelected ? `${c.activeBg} ${c.activeText}` : `${c.bg} ${c.text}`
               }`}
             >

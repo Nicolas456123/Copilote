@@ -6,7 +6,7 @@ export default function WeeklyGraph({ weekDates, habitLog, habits, today }) {
 
   return (
     <Card>
-      <div className="text-xs font-bold text-navy mb-2">📈 SEMAINE EN COURS</div>
+      <div className="text-sm font-bold text-navy mb-2">📈 SEMAINE EN COURS</div>
       <div className="flex items-end gap-1.5 h-20 justify-between">
         {weekDates.map(d => {
           const dayHabits = habitLog[d] || {};
@@ -23,7 +23,7 @@ export default function WeeklyGraph({ weekDates, habitLog, habits, today }) {
                   background: pct === 100 ? "#81B29A" : pct > 0 ? `rgba(129,178,154,${0.3 + pct / 200})` : "#f0f0f0",
                 }}
               />
-              <span className={`text-[10px] ${isToday ? "text-coral font-extrabold" : "text-gray-400"}`}>
+              <span className={`text-[12px] ${isToday ? "text-coral font-extrabold" : "text-gray-400"}`}>
                 {getDayName(d)}
               </span>
             </div>

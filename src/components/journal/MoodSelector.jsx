@@ -3,7 +3,7 @@ import { MOOD_OPTIONS } from '../../lib/constants';
 export default function MoodSelector({ selected, onSelect }) {
   return (
     <div>
-      <div className="text-xs font-bold text-navy mb-2">Comment tu te sens ?</div>
+      <div className="text-sm font-bold text-navy mb-2">Comment tu te sens ?</div>
       <div className="flex gap-2 justify-center">
         {MOOD_OPTIONS.map(m => (
           <button
@@ -16,7 +16,7 @@ export default function MoodSelector({ selected, onSelect }) {
             }`}
           >
             <span className="text-2xl">{m.emoji}</span>
-            <span className="text-[10px] font-semibold text-navy">{m.label}</span>
+            <span className="text-[12px] font-semibold text-navy">{m.label}</span>
           </button>
         ))}
       </div>

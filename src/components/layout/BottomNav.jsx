@@ -17,7 +17,7 @@ export default function BottomNav() {
           to={t.to}
           end={t.to === "/"}
           className={({ isActive }) =>
-            `flex-1 py-2 rounded-xl flex flex-col items-center gap-0.5 text-[10px] font-semibold no-underline transition-all ${
+            `flex-1 py-2 rounded-xl flex flex-col items-center gap-0.5 text-[12px] font-semibold no-underline transition-all ${
               isActive ? "bg-navy text-white" : "bg-transparent text-gray-400"
             }`
           }

@@ -14,7 +14,7 @@ export default function HabitudesPage() {
         </ProgressRing>
         <div>
           <div className="text-base font-extrabold text-navy">Habitudes du jour</div>
-          <div className="text-xs text-gray-400">
+          <div className="text-sm text-gray-400">
             {habitsProgress === 100 ? "Tout coché ! 🎉" : habitsProgress >= 50 ? "Continue ! 💪" : "Allez, on s'y met !"}
           </div>
         </div>

@@ -39,13 +39,13 @@ export default function ProjectCard({
       <div className="flex items-center gap-2.5 px-3.5 py-3 cursor-pointer" onClick={onToggleExpand}>
         <ProgressRing progress={pr} size={44} stroke={3} color={pr === 100 ? "#81B29A" : d.color} />
         <div className="flex-1">
-          <div className="text-sm font-bold text-navy flex items-center gap-1">
+          <div className="text-base font-bold text-navy flex items-center gap-1">
             {project.name}
             {project.link && (
-              <a href={project.link} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} className="text-xs text-gray-400">🔗</a>
+              <a href={project.link} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} className="text-sm text-gray-400">🔗</a>
             )}
           </div>
-          <div className="text-[11px] text-gray-400">
+          <div className="text-[13px] text-gray-400">
             {totalC === 0 ? "Pas encore structuré" : pr === 100 ? "Terminé ! 🎉" : `${doneC}/${totalC} étapes`}
           </div>
         </div>
@@ -82,8 +82,8 @@ export default function ProjectCard({
           />
 
           {msg && (
-            <div className="relative px-3 py-2.5 rounded-lg mb-2.5 bg-gradient-to-br from-navy to-[#5A5F7A] text-xs text-white leading-relaxed animate-fade-in">
-              <button onClick={onClearMsg} className="absolute top-1 right-1.5 bg-none border-none text-white/30 text-xs cursor-pointer">×</button>
+            <div className="relative px-3 py-2.5 rounded-lg mb-2.5 bg-gradient-to-br from-navy to-[#5A5F7A] text-sm text-white leading-relaxed animate-fade-in">
+              <button onClick={onClearMsg} className="absolute top-1 right-1.5 bg-none border-none text-white/30 text-sm cursor-pointer">×</button>
               🤖 {msg}
             </div>
           )}
@@ -103,7 +103,7 @@ export default function ProjectCard({
           ))}
 
           {totalC === 0 && !loading && (
-            <div className="text-center py-3 text-gray-300 text-xs">
+            <div className="text-center py-3 text-gray-300 text-sm">
               Clique "🔪 Découper" pour structurer ce projet avec l'IA
             </div>
           )}
@@ -116,14 +116,14 @@ export default function ProjectCard({
                 placeholder="Nouvelle étape…"
                 onKeyDown={e => e.key === "Enter" && handleAddStep()}
                 autoFocus
-                className="flex-1 p-1.5 rounded-lg border border-gray-100 text-xs font-nunito outline-none focus:border-sage"
+                className="flex-1 p-1.5 rounded-lg border border-gray-100 text-sm font-nunito outline-none focus:border-sage"
               />
-              <button onClick={handleAddStep} className="px-2.5 py-1.5 rounded-lg border-none bg-sage text-white text-[11px] font-bold cursor-pointer font-nunito">OK</button>
+              <button onClick={handleAddStep} className="px-2.5 py-1.5 rounded-lg border-none bg-sage text-white text-[13px] font-bold cursor-pointer font-nunito">OK</button>
             </div>
           ) : (
             <button
               onClick={() => { setAdding(true); setNewText(""); }}
-              className="w-full p-1.5 rounded-lg mt-1.5 border border-dashed border-gray-200 bg-transparent text-gray-400 text-[11px] cursor-pointer font-nunito hover:border-sage hover:text-sage transition-colors"
+              className="w-full p-1.5 rounded-lg mt-1.5 border border-dashed border-gray-200 bg-transparent text-gray-400 text-[13px] cursor-pointer font-nunito hover:border-sage hover:text-sage transition-colors"
             >
               + Ajouter manuellement
             </button>
@@ -131,7 +131,7 @@ export default function ProjectCard({
 
           <button
             onClick={() => onDeleteProject(project.id)}
-            className="mt-3 p-1.5 border-none bg-transparent text-coral text-[11px] cursor-pointer font-nunito w-full text-center opacity-40 hover:opacity-100 transition-opacity"
+            className="mt-3 p-1.5 border-none bg-transparent text-coral text-[13px] cursor-pointer font-nunito w-full text-center opacity-40 hover:opacity-100 transition-opacity"
           >
             Supprimer
           </button>

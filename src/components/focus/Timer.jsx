@@ -16,16 +16,16 @@ export default function Timer({ focusTask, focusTime, focusRunning, focusNudge, 
         }}
       >
         <div className="text-[32px] font-extrabold tabular-nums">{formatTime(focusTime)}</div>
-        <div className="text-[11px] opacity-80 mt-0.5">{focusRunning ? "En cours…" : "En pause"}</div>
+        <div className="text-[13px] opacity-80 mt-0.5">{focusRunning ? "En cours…" : "En pause"}</div>
       </div>
 
       <div className="text-center">
-        <div className="text-sm font-semibold text-navy">{focusTask.text}</div>
-        <div className="text-[11px] text-gray-400">{focusTask.projectName}</div>
+        <div className="text-base font-semibold text-navy">{focusTask.text}</div>
+        <div className="text-[13px] text-gray-400">{focusTask.projectName}</div>
       </div>
 
       {focusNudge && (
-        <div className="px-4 py-2.5 rounded-xl bg-coral/10 text-coral text-xs font-semibold text-center animate-pulse">
+        <div className="px-4 py-2.5 rounded-xl bg-coral/10 text-coral text-sm font-semibold text-center animate-pulse">
           ⏰ 1h ! Fais une pause.
         </div>
       )}
@@ -33,14 +33,14 @@ export default function Timer({ focusTask, focusTime, focusRunning, focusNudge, 
       <div className="flex gap-2.5">
         <button
           onClick={() => setFocusRunning(!focusRunning)}
-          className="px-6 py-2.5 rounded-xl border-none text-white text-sm font-bold cursor-pointer font-nunito"
+          className="px-6 py-2.5 rounded-xl border-none text-white text-base font-bold cursor-pointer font-nunito"
           style={{ background: focusRunning ? "#F2CC8F" : "#81B29A" }}
         >
           {focusRunning ? "⏸ Pause" : "▶ Go"}
         </button>
         <button
           onClick={stopFocus}
-          className="px-6 py-2.5 rounded-xl border border-gray-200 bg-transparent text-gray-400 text-sm font-semibold cursor-pointer font-nunito hover:text-coral hover:border-coral transition-colors"
+          className="px-6 py-2.5 rounded-xl border border-gray-200 bg-transparent text-gray-400 text-base font-semibold cursor-pointer font-nunito hover:text-coral hover:border-coral transition-colors"
         >
           Arrêter
         </button>

@@ -28,12 +28,12 @@ export default function MoodCalendar({ entries, onSelectDate }) {
     <Card>
       <div className="flex items-center justify-between mb-3">
         <button onClick={prevMonth} className="bg-none border-none text-gray-400 cursor-pointer text-base px-2">‹</button>
-        <span className="text-sm font-bold text-navy capitalize">{monthLabel}</span>
+        <span className="text-base font-bold text-navy capitalize">{monthLabel}</span>
         <button onClick={nextMonth} className="bg-none border-none text-gray-400 cursor-pointer text-base px-2">›</button>
       </div>
       <div className="grid grid-cols-7 gap-1">
         {WEEKDAY_NAMES.map(d => (
-          <div key={d} className="text-[10px] text-gray-400 text-center font-semibold pb-1">{d}</div>
+          <div key={d} className="text-[12px] text-gray-400 text-center font-semibold pb-1">{d}</div>
         ))}
         {dates.map(({ date, currentMonth }) => {
           const entry = entryMap[date];
@@ -42,7 +42,7 @@ export default function MoodCalendar({ entries, onSelectDate }) {
             <button
               key={date}
               onClick={() => entry && onSelectDate(entry)}
-              className={`w-full aspect-square rounded-lg flex items-center justify-center text-[11px] border-none cursor-pointer font-nunito transition-all ${
+              className={`w-full aspect-square rounded-lg flex items-center justify-center text-[13px] border-none cursor-pointer font-nunito transition-all ${
                 !currentMonth ? "opacity-30" : ""
               } ${isToday ? "ring-2 ring-coral" : ""} ${
                 entry ? "bg-white hover:bg-gray-50" : "bg-transparent"

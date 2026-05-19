@@ -49,7 +49,7 @@ export default function ProjetsPage() {
         return (
           <div key={domKey}>
             {!selectedDomain && (
-              <div className="text-[13px] font-bold my-2 flex items-center gap-1.5" style={{ color: d.color }}>
+              <div className="text-[15px] font-bold my-2 flex items-center gap-1.5" style={{ color: d.color }}>
                 {d.icon} {d.label}
               </div>
             )}
@@ -89,11 +89,11 @@ export default function ProjetsPage() {
               placeholder={`Nouveau projet ${DOMAINS[selectedDomain]?.label}…`}
               onKeyDown={e => e.key === "Enter" && handleAddProject()}
               autoFocus
-              className="flex-1 p-2.5 rounded-lg border border-gray-100 text-[13px] font-nunito outline-none focus:border-sage"
+              className="flex-1 p-2.5 rounded-lg border border-gray-100 text-[15px] font-nunito outline-none focus:border-sage"
             />
             <button
               onClick={handleAddProject}
-              className="px-3.5 py-2.5 rounded-lg border-none text-white text-[13px] font-bold cursor-pointer font-nunito"
+              className="px-3.5 py-2.5 rounded-lg border-none text-white text-[15px] font-bold cursor-pointer font-nunito"
               style={{ background: DOMAINS[selectedDomain]?.color }}
             >
               +
@@ -102,7 +102,7 @@ export default function ProjetsPage() {
         ) : (
           <button
             onClick={() => setShowAddProject(true)}
-            className="p-2.5 rounded-lg border-2 border-dashed border-gray-200 bg-transparent text-gray-400 text-xs cursor-pointer font-nunito hover:border-sage hover:text-sage transition-colors"
+            className="p-2.5 rounded-lg border-2 border-dashed border-gray-200 bg-transparent text-gray-400 text-sm cursor-pointer font-nunito hover:border-sage hover:text-sage transition-colors"
           >
             + Ajouter un projet
           </button>

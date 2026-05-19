@@ -10,7 +10,7 @@ export default function FocusPage() {
       <div className="text-lg font-extrabold text-navy">Mode Focus</div>
       {!focusTask ? (
         <>
-          <div className="text-[13px] text-gray-400 text-center">Choisis un projet focus et plonge-toi dedans.</div>
+          <div className="text-[15px] text-gray-400 text-center">Choisis un projet focus et plonge-toi dedans.</div>
           <TaskSelector
             projects={projects}
             focusProjects={focusProjects}
