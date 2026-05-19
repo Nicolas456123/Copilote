@@ -6,16 +6,16 @@ export default function HabitItem({ habit, checked, onToggle, gymThisWeek }) {
   return (
     <div
       onClick={onToggle}
-      className="flex items-center gap-3 px-4 py-3.5 rounded-2xl border border-black/5 cursor-pointer transition-all"
+      className="flex items-center gap-3 px-4 py-3.5 rounded-2xl border border-line-soft bg-surface cursor-pointer transition-all"
       style={{
-        background: checked ? `${d?.color}10` : "white",
+        background: checked ? `${d?.color}10` : undefined,
         opacity: checked ? 0.7 : 1,
       }}
     >
       <div
-        className="w-7 h-7 rounded-full flex items-center justify-center text-white text-base shrink-0 transition-colors"
+        className="w-7 h-7 rounded-full flex items-center justify-center text-white text-base shrink-0 transition-colors border-2"
         style={{
-          border: `2px solid ${checked ? "#81B29A" : "#ddd"}`,
+          borderColor: checked ? "#81B29A" : "var(--color-line)",
           background: checked ? "#81B29A" : "transparent",
         }}
       >

@@ -20,7 +20,7 @@ export default function WeeklyGraph({ weekDates, habitLog, habits, today }) {
                 className="w-full rounded-t-md transition-all duration-500"
                 style={{
                   height: `${Math.max(pct * 0.6, 4)}px`,
-                  background: pct === 100 ? "#81B29A" : pct > 0 ? `rgba(129,178,154,${0.3 + pct / 200})` : "#f0f0f0",
+                  background: pct === 100 ? "#81B29A" : pct > 0 ? `rgba(129,178,154,${0.3 + pct / 200})` : "var(--color-surface-2)",
                 }}
               />
               <span className={`text-[12px] ${isToday ? "text-coral font-extrabold" : "text-ink-muted"}`}>

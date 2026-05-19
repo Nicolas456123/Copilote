@@ -21,8 +21,8 @@ export default function WeekView({ weekDates, habitLog, habits, today }) {
               <div
                 className="w-7 h-7 rounded-full mx-auto mt-1 flex items-center justify-center text-[12px] font-bold"
                 style={{
-                  background: count === total ? "#81B29A" : count > 0 ? `rgba(129,178,154,${count / total})` : "#f5f5f5",
-                  color: count > 0 ? "white" : "#ccc",
+                  background: count === total ? "#81B29A" : count > 0 ? `rgba(129,178,154,${count / total})` : "var(--color-surface-2)",
+                  color: count > 0 ? "white" : "var(--color-ink-soft)",
                   border: isToday ? "2px solid #E07A5F" : "none",
                 }}
               >
