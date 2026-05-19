@@ -20,7 +20,7 @@ export default function CopilotCard({ aiMsg, aiLoading, askAI, aiPlanWeek }) {
             key={btn.l}
             onClick={() => btn.p ? askAI(btn.p) : aiPlanWeek()}
             disabled={aiLoading}
-            className="px-3 py-1.5 rounded-lg border border-white/20 bg-white/10 text-white text-[13px] font-semibold cursor-pointer font-nunito disabled:opacity-50 hover:bg-white/20 transition-all"
+            className="px-3 py-1.5 rounded-lg border border-white/20 bg-surface/10 text-white text-[13px] font-semibold cursor-pointer font-nunito disabled:opacity-50 hover:bg-surface/20 transition-all"
           >
             {btn.l}
           </button>

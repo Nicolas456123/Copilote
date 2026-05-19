@@ -1,11 +1,15 @@
 import { getGreeting, getBedtimeWarning } from '../../utils/greeting';
+import ThemeToggle from './ThemeToggle';
 
 export default function Header({ streak, gymThisWeek, habitsToday, habitsTotal, level }) {
   const bedtime = getBedtimeWarning();
 
   return (
-    <div className="px-5 pt-5 pb-2 text-center">
-      <div className="text-[22px] font-extrabold text-navy">{getGreeting()}</div>
+    <div className="px-5 pt-5 pb-2">
+      <div className="flex items-start justify-between gap-2">
+        <div className="text-[22px] font-extrabold text-ink flex-1 text-center pl-12">{getGreeting()}</div>
+        <ThemeToggle />
+      </div>
       <div className="flex gap-2 justify-center mt-2 flex-wrap">
         {streak > 0 && (
           <span className="bg-gradient-to-r from-sand to-coral text-white px-3 py-0.5 rounded-full text-sm font-bold">
@@ -25,7 +29,7 @@ export default function Header({ streak, gymThisWeek, habitsToday, habitsTotal, 
         </span>
       </div>
       {bedtime && (
-        <div className="mt-2 px-3.5 py-2 rounded-lg bg-coral/10 text-coral text-sm font-semibold">
+        <div className="mt-2 px-3.5 py-2 rounded-lg bg-coral/10 text-coral text-sm font-semibold text-center">
           {bedtime}
         </div>
       )}

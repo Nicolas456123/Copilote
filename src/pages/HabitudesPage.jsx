@@ -13,8 +13,8 @@ export default function HabitudesPage() {
           {habitsToday}/{habitsTotal}
         </ProgressRing>
         <div>
-          <div className="text-base font-extrabold text-navy">Habitudes du jour</div>
-          <div className="text-sm text-gray-400">
+          <div className="text-base font-extrabold text-ink">Habitudes du jour</div>
+          <div className="text-sm text-ink-muted">
             {habitsProgress === 100 ? "Tout coché ! 🎉" : habitsProgress >= 50 ? "Continue ! 💪" : "Allez, on s'y met !"}
           </div>
         </div>

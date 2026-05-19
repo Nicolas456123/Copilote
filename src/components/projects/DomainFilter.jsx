@@ -6,7 +6,7 @@ export default function DomainFilter({ selected, onSelect }) {
       <button
         onClick={() => onSelect(null)}
         className={`px-3.5 py-1.5 rounded-lg border-none whitespace-nowrap text-sm font-semibold cursor-pointer font-nunito transition-all ${
-          !selected ? "bg-navy text-white" : "bg-[#f0ede8] text-gray-400"
+          !selected ? "bg-navy text-white" : "bg-[#f0ede8] text-ink-muted"
         }`}
       >
         Tous

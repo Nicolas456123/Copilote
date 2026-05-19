@@ -9,13 +9,13 @@ export default function ReasonTags({ selected, onToggle }) {
 
   const colorMap = {
     positive: { bg: "bg-sage/15", activeBg: "bg-sage", text: "text-sage", activeText: "text-white" },
-    neutral: { bg: "bg-sand/20", activeBg: "bg-sand", text: "text-navy", activeText: "text-navy" },
+    neutral: { bg: "bg-sand/20", activeBg: "bg-sand", text: "text-ink", activeText: "text-ink" },
     negative: { bg: "bg-coral/10", activeBg: "bg-coral", text: "text-coral", activeText: "text-white" },
   };
 
   return (
     <div>
-      <div className="text-sm font-bold text-navy mb-2">Pourquoi ? <span className="font-normal text-gray-400">(plusieurs choix)</span></div>
+      <div className="text-sm font-bold text-ink mb-2">Pourquoi ? <span className="font-normal text-ink-muted">(plusieurs choix)</span></div>
       <div className="flex flex-wrap gap-1.5">
         {allTags.map(tag => {
           const isSelected = selected.includes(tag.text);

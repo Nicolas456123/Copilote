@@ -89,7 +89,7 @@ export default function ProjetsPage() {
               placeholder={`Nouveau projet ${DOMAINS[selectedDomain]?.label}…`}
               onKeyDown={e => e.key === "Enter" && handleAddProject()}
               autoFocus
-              className="flex-1 p-2.5 rounded-lg border border-gray-100 text-[15px] font-nunito outline-none focus:border-sage"
+              className="flex-1 p-2.5 rounded-lg border border-line-soft text-[15px] font-nunito outline-none focus:border-sage"
             />
             <button
               onClick={handleAddProject}
@@ -102,7 +102,7 @@ export default function ProjetsPage() {
         ) : (
           <button
             onClick={() => setShowAddProject(true)}
-            className="p-2.5 rounded-lg border-2 border-dashed border-gray-200 bg-transparent text-gray-400 text-sm cursor-pointer font-nunito hover:border-sage hover:text-sage transition-colors"
+            className="p-2.5 rounded-lg border-2 border-dashed border-line bg-transparent text-ink-muted text-sm cursor-pointer font-nunito hover:border-sage hover:text-sage transition-colors"
           >
             + Ajouter un projet
           </button>

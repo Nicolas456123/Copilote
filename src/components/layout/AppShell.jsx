@@ -50,7 +50,7 @@ export default function AppShell() {
 
   if (!allLoaded) {
     return (
-      <div className="flex items-center justify-center h-screen bg-gradient-to-b from-cream to-[#F5F0EB]">
+      <div className="flex items-center justify-center h-screen bg-gradient-to-b from-cream to-surface-2">
         <Spinner size={32} />
       </div>
     );
@@ -69,7 +69,7 @@ export default function AppShell() {
   };
 
   return (
-    <div className="font-nunito max-w-[420px] mx-auto min-h-screen bg-gradient-to-b from-cream to-[#F5F0EB] flex flex-col">
+    <div className="font-nunito max-w-[440px] mx-auto min-h-screen bg-cream flex flex-col">
       <Header
         streak={streak}
         gymThisWeek={habitsHook.gymThisWeek}
@@ -77,7 +77,7 @@ export default function AppShell() {
         habitsTotal={habitsHook.habitsTotal}
         level={level}
       />
-      <div className="flex-1 overflow-auto px-3.5 pb-28">
+      <div className="flex-1 overflow-auto px-4 pb-28">
         <Outlet context={context} />
       </div>
       <BottomNav />

@@ -32,20 +32,20 @@ export default function ProjectCard({
 
   return (
     <div
-      className="bg-white rounded-2xl overflow-hidden mb-2 shadow-sm transition-all"
+      className="bg-surface rounded-2xl overflow-hidden mb-2 shadow-sm transition-all"
       style={{ border: expanded ? `2px solid ${d.color}30` : "1px solid transparent" }}
     >
       {/* Header */}
       <div className="flex items-center gap-2.5 px-3.5 py-3 cursor-pointer" onClick={onToggleExpand}>
         <ProgressRing progress={pr} size={44} stroke={3} color={pr === 100 ? "#81B29A" : d.color} />
         <div className="flex-1">
-          <div className="text-base font-bold text-navy flex items-center gap-1">
+          <div className="text-base font-bold text-ink flex items-center gap-1">
             {project.name}
             {project.link && (
-              <a href={project.link} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} className="text-sm text-gray-400">🔗</a>
+              <a href={project.link} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} className="text-sm text-ink-muted">🔗</a>
             )}
           </div>
-          <div className="text-[13px] text-gray-400">
+          <div className="text-[13px] text-ink-muted">
             {totalC === 0 ? "Pas encore structuré" : pr === 100 ? "Terminé ! 🎉" : `${doneC}/${totalC} étapes`}
           </div>
         </div>
@@ -57,12 +57,12 @@ export default function ProjectCard({
         >
           ⭐
         </button>
-        <span className={`text-gray-300 text-base transition-transform ${expanded ? "rotate-90" : ""}`}>›</span>
+        <span className={`text-ink-soft text-base transition-transform ${expanded ? "rotate-90" : ""}`}>›</span>
       </div>
 
       {/* Progress bar */}
       {totalC > 0 && (
-        <div className="h-0.5 bg-gray-100">
+        <div className="h-0.5 bg-surface-2">
           <div className="h-full transition-all duration-600" style={{ width: `${pr}%`, background: pr === 100 ? "#81B29A" : d.color }} />
         </div>
       )}
@@ -103,7 +103,7 @@ export default function ProjectCard({
           ))}
 
           {totalC === 0 && !loading && (
-            <div className="text-center py-3 text-gray-300 text-sm">
+            <div className="text-center py-3 text-ink-soft text-sm">
               Clique "🔪 Découper" pour structurer ce projet avec l'IA
             </div>
           )}
@@ -116,14 +116,14 @@ export default function ProjectCard({
                 placeholder="Nouvelle étape…"
                 onKeyDown={e => e.key === "Enter" && handleAddStep()}
                 autoFocus
-                className="flex-1 p-1.5 rounded-lg border border-gray-100 text-sm font-nunito outline-none focus:border-sage"
+                className="flex-1 p-1.5 rounded-lg border border-line-soft text-sm font-nunito outline-none focus:border-sage"
               />
               <button onClick={handleAddStep} className="px-2.5 py-1.5 rounded-lg border-none bg-sage text-white text-[13px] font-bold cursor-pointer font-nunito">OK</button>
             </div>
           ) : (
             <button
               onClick={() => { setAdding(true); setNewText(""); }}
-              className="w-full p-1.5 rounded-lg mt-1.5 border border-dashed border-gray-200 bg-transparent text-gray-400 text-[13px] cursor-pointer font-nunito hover:border-sage hover:text-sage transition-colors"
+              className="w-full p-1.5 rounded-lg mt-1.5 border border-dashed border-line bg-transparent text-ink-muted text-[13px] cursor-pointer font-nunito hover:border-sage hover:text-sage transition-colors"
             >
               + Ajouter manuellement
             </button>

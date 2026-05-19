@@ -12,7 +12,7 @@ export default function WeekFocus({ focusProjects }) {
       <div className="text-sm font-bold text-coral mb-2">
         🎯 FOCUS DE LA SEMAINE
         {focusProjects.length === 0 && (
-          <span className="font-normal text-gray-400"> — choisis 2-3 projets dans "Projets"</span>
+          <span className="font-normal text-ink-muted"> — choisis 2-3 projets dans "Projets"</span>
         )}
       </div>
       {focusProjects.length > 0 ? (
@@ -27,14 +27,14 @@ export default function WeekFocus({ focusProjects }) {
             >
               <ProgressRing progress={pr} size={36} stroke={3} color={DOMAINS[p.domain]?.color} />
               <div className="flex-1 min-w-0">
-                <div className="text-[15px] font-bold text-navy">{DOMAINS[p.domain]?.icon} {p.name}</div>
-                {nx && <div className="text-[13px] text-gray-400 truncate">→ {nx.text}</div>}
+                <div className="text-[15px] font-bold text-ink">{DOMAINS[p.domain]?.icon} {p.name}</div>
+                {nx && <div className="text-[13px] text-ink-muted truncate">→ {nx.text}</div>}
               </div>
             </div>
           );
         })
       ) : (
-        <div className="text-sm text-gray-300 text-center py-2">
+        <div className="text-sm text-ink-soft text-center py-2">
           Sélectionne tes priorités dans l'onglet Projets (⭐)
         </div>
       )}

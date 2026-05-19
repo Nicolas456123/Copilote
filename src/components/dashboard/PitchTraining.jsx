@@ -31,7 +31,7 @@ function PianoKeyboard({ onPick, picked }) {
           <button
             key={n.offset}
             onClick={() => onPick(n)}
-            className={`flex-1 py-2 rounded-lg border-none text-[12px] font-bold cursor-pointer font-nunito transition-all ${n.sharp ? 'bg-navy text-white' : 'bg-[#f5f2ee] text-navy'}`}
+            className={`flex-1 py-2 rounded-lg border-none text-[12px] font-bold cursor-pointer font-nunito transition-all ${n.sharp ? 'bg-navy text-white' : 'bg-surface-2 text-ink'}`}
             style={{
               outline: isPicked ? '2px solid #E07A5F' : isTarget ? '2px solid #81B29A' : 'none',
               outlineOffset: isPicked || isTarget ? '-2px' : 0,
@@ -114,7 +114,7 @@ export default function PitchTraining() {
         </div>
       </div>
 
-      <div className="text-[13px] text-gray-400 mb-2.5 leading-relaxed">
+      <div className="text-[13px] text-ink-muted mb-2.5 leading-relaxed">
         {done
           ? `✓ Fait pour aujourd'hui · ${validatedToday}/${todayCount} justes.`
           : `Entraîne ton cerveau ${target}× par jour. ${todayCount}/${target} aujourd'hui · ${validatedToday} justes.`}
@@ -142,7 +142,7 @@ export default function PitchTraining() {
 
       {phase === 'imagine' && (
         <div className="flex flex-col gap-2 animate-fade-in">
-          <div className="text-[14px] text-navy text-center py-3 px-2 bg-[#f5f2ee] rounded-xl leading-relaxed">
+          <div className="text-[14px] text-ink text-center py-3 px-2 bg-surface-2 rounded-xl leading-relaxed">
             Ferme les yeux. Imagine le <b>LA 440</b>.
             <br />Chante-le, hum-le.
           </div>
@@ -155,7 +155,7 @@ export default function PitchTraining() {
             </button>
             <button
               onClick={cancel}
-              className="px-3 py-2.5 rounded-xl border border-gray-200 bg-transparent text-gray-400 text-sm cursor-pointer font-nunito"
+              className="px-3 py-2.5 rounded-xl border border-line bg-transparent text-ink-muted text-sm cursor-pointer font-nunito"
             >
               Annuler
             </button>
@@ -165,7 +165,7 @@ export default function PitchTraining() {
 
       {phase === 'compare' && (
         <div className="flex flex-col gap-2 animate-fade-in">
-          <div className="text-[14px] text-navy text-center py-2 px-2 bg-[#f5f2ee] rounded-xl leading-relaxed">
+          <div className="text-[14px] text-ink text-center py-2 px-2 bg-surface-2 rounded-xl leading-relaxed">
             Tu avais juste ? Sinon clique la note que tu pensais avoir.
           </div>
           <div className="flex gap-1.5">
@@ -206,7 +206,7 @@ export default function PitchTraining() {
           )}
           <button
             onClick={cancel}
-            className="text-[12px] text-gray-400 underline bg-transparent border-none cursor-pointer mt-1 font-nunito"
+            className="text-[12px] text-ink-muted underline bg-transparent border-none cursor-pointer mt-1 font-nunito"
           >
             Annuler la session
           </button>
@@ -214,10 +214,10 @@ export default function PitchTraining() {
       )}
 
       {phase === 'idle' && (history.length > 0 || done) && (
-        <div className="mt-3 pt-2.5 border-t border-gray-100">
+        <div className="mt-3 pt-2.5 border-t border-line-soft">
           <button
             onClick={() => setShowHistory(s => !s)}
-            className="w-full text-left text-[13px] text-gray-500 font-semibold bg-transparent border-none cursor-pointer p-0 font-nunito"
+            className="w-full text-left text-[13px] text-ink-muted font-semibold bg-transparent border-none cursor-pointer p-0 font-nunito"
           >
             {showHistory ? '▾' : '▸'} Historique ({history.length})
           </button>
@@ -230,9 +230,9 @@ export default function PitchTraining() {
                 return (
                   <div
                     key={s.timestamp}
-                    className="flex items-center gap-2 text-[13px] py-1 px-2 rounded-lg bg-[#fafafa]"
+                    className="flex items-center gap-2 text-[13px] py-1 px-2 rounded-lg bg-surface-3"
                   >
-                    <span className="text-gray-400 tabular-nums">
+                    <span className="text-ink-muted tabular-nums">
                       {formatDate(s.timestamp)} {formatTime(s.timestamp)}
                     </span>
                     <span
@@ -245,7 +245,7 @@ export default function PitchTraining() {
                     </span>
                     <button
                       onClick={() => removeSession(s.timestamp)}
-                      className="text-gray-300 text-[12px] bg-transparent border-none cursor-pointer hover:text-coral"
+                      className="text-ink-soft text-[12px] bg-transparent border-none cursor-pointer hover:text-coral"
                       title="Supprimer"
                     >
                       ×
@@ -256,7 +256,7 @@ export default function PitchTraining() {
               {history.length > 0 && (
                 <button
                   onClick={() => { if (confirm("Vider tout l'historique ?")) clearAll(); }}
-                  className="text-[12px] text-gray-300 underline bg-transparent border-none cursor-pointer mt-1 font-nunito self-end"
+                  className="text-[12px] text-ink-soft underline bg-transparent border-none cursor-pointer mt-1 font-nunito self-end"
                 >
                   Tout effacer
                 </button>

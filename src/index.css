@@ -1,12 +1,37 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-navy: #3D405B;
   --color-coral: #E07A5F;
   --color-sage: #81B29A;
   --color-sand: #F2CC8F;
   --color-cream: #FFF8F0;
+  --color-surface: #FFFFFF;
+  --color-surface-2: #F5F2EE;
+  --color-surface-3: #FAFAFA;
+  --color-ink: #3D405B;
+  --color-ink-muted: #6B7280;
+  --color-ink-soft: #9CA3AF;
+  --color-line: #E5E7EB;
+  --color-line-soft: #F3F4F6;
   --font-nunito: 'Nunito', sans-serif;
+}
+
+:root.dark {
+  --color-cream: #0E0F1A;
+  --color-surface: #1A1B29;
+  --color-surface-2: #232539;
+  --color-surface-3: #1E1F2E;
+  --color-ink: #ECECF5;
+  --color-ink-muted: #A0A0B8;
+  --color-ink-soft: #6B6D86;
+  --color-line: #2A2C42;
+  --color-line-soft: #232539;
+  --color-coral: #FF8E73;
+  --color-sage: #9BCBAF;
+  --color-sand: #F5D595;
 }
 
 @keyframes fade-in {
@@ -37,14 +62,34 @@
   &::-webkit-scrollbar { display: none; }
 }
 
-body {
+html, body {
   margin: 0;
   font-family: 'Nunito', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #FFF8F0;
+  background: var(--color-cream);
+  color: var(--color-ink);
+  color-scheme: light;
+}
+
+:root.dark {
+  color-scheme: dark;
+}
+
+:root.dark body {
+  background: var(--color-cream);
 }
 
 * {
   box-sizing: border-box;
+}
+
+input, textarea, select {
+  color: var(--color-ink);
+  background: var(--color-surface);
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: var(--color-ink-soft);
 }

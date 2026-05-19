@@ -21,7 +21,7 @@ function PermissionBanner({ permission, onAsk }) {
   }
   if (permission === 'unsupported') {
     return (
-      <div className="text-[13px] py-1.5 px-2.5 rounded-lg bg-gray-100 text-gray-500 mb-2.5">
+      <div className="text-[13px] py-1.5 px-2.5 rounded-lg bg-surface-2 text-ink-muted mb-2.5">
         Ton navigateur ne supporte pas les notifications.
       </div>
     );
@@ -46,11 +46,11 @@ function TypeRow({ type, state, onToggle, onAdd, onRemove }) {
   };
 
   return (
-    <div className="border-t border-gray-100 pt-2.5 mt-2.5">
+    <div className="border-t border-line-soft pt-2.5 mt-2.5">
       <div className="flex items-center justify-between mb-2">
         <div className="flex items-center gap-1.5">
           <span className="text-base">{type.emoji}</span>
-          <span className="text-[14px] font-semibold text-navy">{type.label}</span>
+          <span className="text-[14px] font-semibold text-ink">{type.label}</span>
         </div>
         <label className="relative inline-flex items-center cursor-pointer">
           <input
@@ -59,7 +59,7 @@ function TypeRow({ type, state, onToggle, onAdd, onRemove }) {
             onChange={(e) => onToggle(type.id, e.target.checked)}
             className="sr-only peer"
           />
-          <div className="w-9 h-5 bg-gray-200 peer-checked:bg-sage rounded-full peer-checked:after:translate-x-4 after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all" />
+          <div className="w-9 h-5 bg-surface-2 peer-checked:bg-sage rounded-full peer-checked:after:translate-x-4 after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-surface after:rounded-full after:h-4 after:w-4 after:transition-all" />
         </label>
       </div>
 
@@ -69,12 +69,12 @@ function TypeRow({ type, state, onToggle, onAdd, onRemove }) {
             {state.times.map(t => (
               <div
                 key={t}
-                className="flex items-center gap-1 py-1 px-2 rounded-lg bg-[#f5f2ee] text-[13px] text-navy font-semibold tabular-nums"
+                className="flex items-center gap-1 py-1 px-2 rounded-lg bg-surface-2 text-[13px] text-ink font-semibold tabular-nums"
               >
                 {t}
                 <button
                   onClick={() => onRemove(type.id, t)}
-                  className="text-gray-400 hover:text-coral bg-transparent border-none cursor-pointer text-[14px] leading-none"
+                  className="text-ink-muted hover:text-coral bg-transparent border-none cursor-pointer text-[14px] leading-none"
                   title="Retirer"
                 >
                   ×
@@ -82,7 +82,7 @@ function TypeRow({ type, state, onToggle, onAdd, onRemove }) {
               </div>
             ))}
             {state.times.length === 0 && (
-              <div className="text-[12px] text-gray-400 italic">Aucun horaire</div>
+              <div className="text-[12px] text-ink-muted italic">Aucun horaire</div>
             )}
           </div>
           <div className="flex gap-1.5">
@@ -90,7 +90,7 @@ function TypeRow({ type, state, onToggle, onAdd, onRemove }) {
               type="time"
               value={newTime}
               onChange={(e) => setNewTime(e.target.value)}
-              className="flex-1 text-[13px] py-1 px-2 rounded-lg border border-gray-200 bg-white font-nunito"
+              className="flex-1 text-[13px] py-1 px-2 rounded-lg border border-line bg-surface font-nunito"
             />
             <button
               onClick={handleAdd}
@@ -135,10 +135,10 @@ export default function RemindersCard() {
       >
         <div className="text-sm font-bold text-coral">🔔 RAPPELS & NOTIFICATIONS</div>
         <div className="flex items-center gap-2">
-          <span className="text-[12px] text-gray-400">
+          <span className="text-[12px] text-ink-muted">
             {enabledCount > 0 ? `${enabledCount} actif${enabledCount > 1 ? 's' : ''}` : 'Aucun'}
           </span>
-          <span className="text-gray-400 text-[14px]">{open ? '▾' : '▸'}</span>
+          <span className="text-ink-muted text-[14px]">{open ? '▾' : '▸'}</span>
         </div>
       </button>
 
@@ -150,7 +150,7 @@ export default function RemindersCard() {
             <>
               <button
                 onClick={handleTest}
-                className="w-full py-2 rounded-xl border border-gray-200 bg-white text-navy text-[14px] font-semibold cursor-pointer font-nunito mb-1"
+                className="w-full py-2 rounded-xl border border-line bg-surface text-ink text-[14px] font-semibold cursor-pointer font-nunito mb-1"
               >
                 🧪 Tester une notification
               </button>
@@ -174,9 +174,9 @@ export default function RemindersCard() {
             />
           ))}
 
-          <div className="mt-3 pt-3 border-t border-gray-100">
-            <div className="text-[13px] font-bold text-navy mb-1.5">📱 iPhone — rappels fiables</div>
-            <div className="text-[12px] text-gray-500 leading-relaxed mb-2">
+          <div className="mt-3 pt-3 border-t border-line-soft">
+            <div className="text-[13px] font-bold text-ink mb-1.5">📱 iPhone — rappels fiables</div>
+            <div className="text-[12px] text-ink-muted leading-relaxed mb-2">
               Safari ne déclenche pas les notifications web quand l'app est fermée. Exporte tes horaires vers le <b>Calendrier iPhone</b> : il te donnera de vraies notifications natives chaque jour.
             </div>
             <button
@@ -186,12 +186,12 @@ export default function RemindersCard() {
             >
               📅 Télécharger pour Calendrier iPhone (.ics)
             </button>
-            <div className="text-[12px] text-gray-400 leading-relaxed mt-2">
+            <div className="text-[12px] text-ink-muted leading-relaxed mt-2">
               Ouvre le fichier sur ton iPhone → Calendrier propose d'ajouter les rappels récurrents. Refais-le si tu changes tes horaires.
             </div>
           </div>
 
-          <div className="mt-3 pt-2 text-[12px] text-gray-400 leading-relaxed border-t border-gray-100">
+          <div className="mt-3 pt-2 text-[12px] text-ink-muted leading-relaxed border-t border-line-soft">
             Pense aussi à installer l'app : Safari → bouton Partager → "Sur l'écran d'accueil".
           </div>
         </div>

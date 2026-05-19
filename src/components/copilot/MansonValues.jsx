@@ -34,7 +34,7 @@ export default function MansonValues() {
             {MANSON_PRINCIPLES.map((p, i) => (
               <div
                 key={i}
-                className={`text-[13px] leading-relaxed py-1 px-2 rounded ${i === daily.index ? "bg-white/15 text-white" : "text-white/70"}`}
+                className={`text-[13px] leading-relaxed py-1 px-2 rounded ${i === daily.index ? "bg-surface/15 text-white" : "text-white/70"}`}
               >
                 <span className="text-sand font-bold mr-1.5">{i + 1}.</span>
                 {p}
@@ -45,7 +45,7 @@ export default function MansonValues() {
       </div>
 
       <div className="text-sm font-bold text-coral mb-2">📕 LES 5 VALEURS — MANSON</div>
-      <div className="text-[13px] text-gray-400 mb-2.5 leading-relaxed">
+      <div className="text-[13px] text-ink-muted mb-2.5 leading-relaxed">
         Lis-les chaque jour. Touche une valeur pour voir où elle apparaît dans ta vie.
       </div>
       <div className="flex flex-col gap-1.5">
@@ -69,14 +69,14 @@ export default function MansonValues() {
                   {i + 1}
                 </span>
                 <span className="text-base">{v.icon}</span>
-                <span className="text-[15px] font-bold text-navy flex-1">{v.title}</span>
-                <span className="text-gray-300 text-sm">{isOpen ? "−" : "+"}</span>
+                <span className="text-[15px] font-bold text-ink flex-1">{v.title}</span>
+                <span className="text-ink-soft text-sm">{isOpen ? "−" : "+"}</span>
               </div>
-              <div className="text-[14px] text-navy/80 italic mt-1 ml-8 leading-snug">
+              <div className="text-[14px] text-ink/80 italic mt-1 ml-8 leading-snug">
                 "{v.pitch}"
               </div>
               {isOpen && (
-                <div className="text-[14px] text-gray-500 leading-relaxed mt-2 ml-8 animate-fade-in">
+                <div className="text-[14px] text-ink-muted leading-relaxed mt-2 ml-8 animate-fade-in">
                   {v.trigger}
                 </div>
               )}
@@ -87,14 +87,14 @@ export default function MansonValues() {
 
       <button
         onClick={() => setShowFalse(s => !s)}
-        className="w-full mt-3 py-2 rounded-xl border border-dashed border-gray-300 bg-transparent text-gray-500 text-[13px] font-semibold cursor-pointer font-nunito"
+        className="w-full mt-3 py-2 rounded-xl border border-dashed border-line bg-transparent text-ink-muted text-[13px] font-semibold cursor-pointer font-nunito"
       >
         {showFalse ? "Masquer les 4 fausses valeurs" : "⚠️ Voir les 4 fausses valeurs (à éviter)"}
       </button>
 
       {showFalse && (
         <div className="flex flex-col gap-1.5 mt-2 animate-fade-in">
-          <div className="text-[13px] text-gray-400 leading-relaxed mb-1">
+          <div className="text-[13px] text-ink-muted leading-relaxed mb-1">
             À fuir : ces valeurs n'engendrent que des problèmes inextricables.
           </div>
           {MANSON_FALSE_VALUES.map(v => {
@@ -108,16 +108,16 @@ export default function MansonValues() {
               >
                 <div className="flex items-center gap-2">
                   <span className="text-base">{v.icon}</span>
-                  <span className="text-[15px] font-bold text-navy flex-1 line-through decoration-1 decoration-[#c0392b]/40">
+                  <span className="text-[15px] font-bold text-ink flex-1 line-through decoration-1 decoration-[#c0392b]/40">
                     {v.title}
                   </span>
-                  <span className="text-gray-300 text-sm">{isOpen ? "−" : "+"}</span>
+                  <span className="text-ink-soft text-sm">{isOpen ? "−" : "+"}</span>
                 </div>
-                <div className="text-[14px] text-navy/70 italic mt-1 ml-6 leading-snug">
+                <div className="text-[14px] text-ink/70 italic mt-1 ml-6 leading-snug">
                   "{v.pitch}"
                 </div>
                 {isOpen && (
-                  <div className="text-[14px] text-gray-500 leading-relaxed mt-2 ml-6 animate-fade-in">
+                  <div className="text-[14px] text-ink-muted leading-relaxed mt-2 ml-6 animate-fade-in">
                     {v.detail}
                   </div>
                 )}

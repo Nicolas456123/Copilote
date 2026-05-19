@@ -23,9 +23,9 @@ export default function HabitItem({ habit, checked, onToggle, gymThisWeek }) {
       </div>
       <span className="text-xl">{habit.icon}</span>
       <div className="flex-1">
-        <div className={`text-base font-semibold text-navy ${checked ? "line-through" : ""}`}>{habit.label}</div>
+        <div className={`text-base font-semibold text-ink ${checked ? "line-through" : ""}`}>{habit.label}</div>
         {habit.target && (
-          <div className="text-[13px] text-gray-400">
+          <div className="text-[13px] text-ink-muted">
             {habit.id === "gym" ? `${gymThisWeek}/${habit.target} cette semaine` : `Objectif: ${habit.target}${habit.unit}`}
           </div>
         )}

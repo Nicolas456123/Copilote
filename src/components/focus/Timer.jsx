@@ -20,8 +20,8 @@ export default function Timer({ focusTask, focusTime, focusRunning, focusNudge, 
       </div>
 
       <div className="text-center">
-        <div className="text-base font-semibold text-navy">{focusTask.text}</div>
-        <div className="text-[13px] text-gray-400">{focusTask.projectName}</div>
+        <div className="text-base font-semibold text-ink">{focusTask.text}</div>
+        <div className="text-[13px] text-ink-muted">{focusTask.projectName}</div>
       </div>
 
       {focusNudge && (
@@ -40,7 +40,7 @@ export default function Timer({ focusTask, focusTime, focusRunning, focusNudge, 
         </button>
         <button
           onClick={stopFocus}
-          className="px-6 py-2.5 rounded-xl border border-gray-200 bg-transparent text-gray-400 text-base font-semibold cursor-pointer font-nunito hover:text-coral hover:border-coral transition-colors"
+          className="px-6 py-2.5 rounded-xl border border-line bg-transparent text-ink-muted text-base font-semibold cursor-pointer font-nunito hover:text-coral hover:border-coral transition-colors"
         >
           Arrêter
         </button>

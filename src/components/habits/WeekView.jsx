@@ -6,7 +6,7 @@ export default function WeekView({ weekDates, habitLog, habits, today }) {
 
   return (
     <Card>
-      <div className="text-sm font-bold text-navy mb-2">📅 SEMAINE</div>
+      <div className="text-sm font-bold text-ink mb-2">📅 SEMAINE</div>
       <div className="flex gap-1 justify-between">
         {weekDates.map(d => {
           const dayHabits = habitLog[d] || {};
@@ -15,7 +15,7 @@ export default function WeekView({ weekDates, habitLog, habits, today }) {
 
           return (
             <div key={d} className="text-center flex-1">
-              <div className={`text-[12px] ${isToday ? "text-coral font-extrabold" : "text-gray-400"}`}>
+              <div className={`text-[12px] ${isToday ? "text-coral font-extrabold" : "text-ink-muted"}`}>
                 {getDayName(d)}
               </div>
               <div
