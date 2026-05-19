@@ -5,7 +5,7 @@ export default function StepItem({ step, onToggle, onDelete, onDetail, loading, 
         onClick={onToggle}
         className="w-[22px] h-[22px] rounded-[5px] shrink-0 mt-0.5 flex items-center justify-center text-white text-[13px] cursor-pointer"
         style={{
-          border: `2px solid ${step.done ? "#81B29A" : "#ddd"}`,
+          border: `2px solid ${step.done ? "#81B29A" : "var(--color-line)"}`,
           background: step.done ? "#81B29A" : "transparent",
         }}
       >

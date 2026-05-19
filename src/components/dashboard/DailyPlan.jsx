@@ -109,7 +109,7 @@ function TaskItem({ task, onDone, onSkip, onPostpone, overdue }) {
         className="w-6 h-6 rounded-md shrink-0 mt-0.5 flex items-center justify-center text-white text-[13px] cursor-pointer border-none"
         style={{
           background: isDone ? "#81B29A" : "transparent",
-          border: `2px solid ${isDone ? "#81B29A" : "#ddd"}`,
+          border: `2px solid ${isDone ? "#81B29A" : "var(--color-line)"}`,
         }}
       >
         {isDone && "✓"}

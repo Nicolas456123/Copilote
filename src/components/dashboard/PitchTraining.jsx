@@ -98,7 +98,7 @@ export default function PitchTraining() {
   };
 
   const dots = Array.from({ length: target }, (_, i) => {
-    if (i >= todayHistory.length) return { color: '#e5e0d8' };
+    if (i >= todayHistory.length) return { color: 'var(--color-surface-2)' };
     const s = todayHistory[i];
     return { color: ecartColor(s.ecart ?? 99) };
   });

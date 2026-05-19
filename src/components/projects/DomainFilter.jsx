@@ -6,7 +6,7 @@ export default function DomainFilter({ selected, onSelect }) {
       <button
         onClick={() => onSelect(null)}
         className={`px-3.5 py-1.5 rounded-lg border-none whitespace-nowrap text-sm font-semibold cursor-pointer font-nunito transition-all ${
-          !selected ? "bg-navy text-white" : "bg-[#f0ede8] text-ink-muted"
+          !selected ? "bg-navy text-white" : "bg-surface-2 text-ink-muted"
         }`}
       >
         Tous
@@ -17,8 +17,8 @@ export default function DomainFilter({ selected, onSelect }) {
           onClick={() => onSelect(key)}
           className="px-3.5 py-1.5 rounded-lg border-none whitespace-nowrap text-sm font-semibold cursor-pointer font-nunito transition-all"
           style={{
-            background: selected === key ? d.color : "#f0ede8",
-            color: selected === key ? "white" : "#666",
+            background: selected === key ? d.color : "var(--color-surface-2)",
+            color: selected === key ? "white" : "var(--color-ink-muted)",
           }}
         >
           {d.icon} {d.label}

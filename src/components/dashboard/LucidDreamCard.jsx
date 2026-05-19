@@ -58,7 +58,7 @@ export default function LucidDreamCard() {
             <div
               key={i}
               className="w-2.5 h-2.5 rounded-full"
-              style={{ background: on ? '#81B29A' : '#e5e0d8' }}
+              style={{ background: on ? '#81B29A' : 'var(--color-surface-2)' }}
             />
           ))}
         </div>

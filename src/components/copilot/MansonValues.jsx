@@ -57,7 +57,7 @@ export default function MansonValues() {
               onClick={() => setOpenId(isOpen ? null : v.id)}
               className="rounded-xl p-2.5 cursor-pointer transition-all"
               style={{
-                background: isOpen ? `${v.color}14` : "#f5f2ee",
+                background: isOpen ? `${v.color}14` : "var(--color-surface-2)",
                 borderLeft: `3px solid ${v.color}`,
               }}
             >

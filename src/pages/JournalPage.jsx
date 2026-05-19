@@ -71,7 +71,7 @@ export default function JournalPage() {
   return (
     <div className="flex flex-col gap-3.5">
       {/* Tab toggle */}
-      <div className="flex gap-1 bg-[#f0ede8] rounded-xl p-1">
+      <div className="flex gap-1 bg-surface-2 rounded-xl p-1">
         <button
           onClick={() => setView("checkin")}
           className={`flex-1 py-2 rounded-lg text-sm font-semibold border-none cursor-pointer font-nunito transition-all ${
@@ -132,7 +132,7 @@ export default function JournalPage() {
                     key={i}
                     className="flex-1 h-1 rounded-full transition-all duration-300"
                     style={{
-                      background: i < step ? "#81B29A" : i === step ? "#E07A5F" : "#e5e5e5",
+                      background: i < step ? "#81B29A" : i === step ? "#E07A5F" : "var(--color-surface-2)",
                     }}
                   />
                 ))}
