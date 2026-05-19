@@ -59,17 +59,18 @@ mobile/
 
 ## Roadmap
 
-- [x] Scaffold + nav 3 onglets
+- [x] Scaffold + nav 5 onglets (Accueil · Habitudes · Oreille · Rêve · Rappels)
 - [x] Reminders avec notifications natives planifiées
-- [x] Reality checks + journal de rêves (basique)
-- [ ] Accueil avec greeting + badges
-- [ ] Habitudes
+- [x] Reality checks + journal de rêves
+- [x] Accueil avec greeting + badges
+- [x] Habitudes (6 habits + week view + haptics)
+- [x] Oreille absolue (LA 440) avec expo-av et génération de WAV piano (harmoniques)
+- [x] Programme rêve lucide 6 semaines (leçons + sources cliquables + checklist quotidienne)
+- [x] Thème sombre via useColorScheme + NativeWind dark:
 - [ ] Projets (hiérarchiques + IA)
-- [ ] Focus timer (avec haptics)
+- [ ] Focus timer
 - [ ] Journal Manson
-- [ ] Programme rêve lucide 6 semaines
-- [ ] Oreille absolue avec expo-av (vrai son natif)
-- [ ] Thème sombre via useColorScheme + NativeWind
+- [ ] Dream signs (catégories LaBerge)
 
 ## Quand sortir du sous-dossier
 

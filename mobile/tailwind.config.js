@@ -2,6 +2,7 @@
 module.exports = {
   content: ['./app/**/*.{js,jsx,ts,tsx}', './components/**/*.{js,jsx,ts,tsx}'],
   presets: [require('nativewind/preset')],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
@@ -18,11 +19,15 @@ module.exports = {
         'ink-soft': '#9CA3AF',
         line: '#E5E7EB',
         'line-soft': '#F3F4F6',
-      },
-      fontFamily: {
-        nunito: ['Nunito_400Regular'],
-        'nunito-bold': ['Nunito_700Bold'],
-        'nunito-black': ['Nunito_800ExtraBold'],
+        'd-cream': '#0E0F1A',
+        'd-surface': '#1A1B29',
+        'd-surface-2': '#232539',
+        'd-surface-3': '#1E1F2E',
+        'd-ink': '#ECECF5',
+        'd-ink-muted': '#A0A0B8',
+        'd-ink-soft': '#6B6D86',
+        'd-line': '#2A2C42',
+        'd-line-soft': '#232539',
       },
     },
   },
