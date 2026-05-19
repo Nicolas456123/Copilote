@@ -10,6 +10,7 @@ import ProgressionCard from '../components/dashboard/ProgressionCard';
 import DailyPlan from '../components/dashboard/DailyPlan';
 import PitchTraining from '../components/dashboard/PitchTraining';
 import LucidDreamCard from '../components/dashboard/LucidDreamCard';
+import LucidProgramCard from '../components/dashboard/LucidProgramCard';
 import RemindersCard from '../components/dashboard/RemindersCard';
 import { useXP } from '../hooks/useXP';
 
@@ -31,6 +32,7 @@ export default function AccueilPage() {
       />
       <RemindersCard />
       <PitchTraining />
+      <LucidProgramCard />
       <LucidDreamCard />
       <DailyPlan
         todayTasks={ctx.todayTasks}
