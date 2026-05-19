@@ -8,7 +8,7 @@ export default function DomainsOverview({ projects }) {
 
   return (
     <Card>
-      <div className="text-xs font-bold text-navy mb-2.5">📊 VUE D'ENSEMBLE</div>
+      <div className="text-sm font-bold text-ink mb-2.5">📊 VUE D'ENSEMBLE</div>
       <div className="grid grid-cols-2 gap-2">
         {Object.entries(DOMAINS).map(([key, d]) => {
           const dp = domainProjects(key, projects);
@@ -21,10 +21,10 @@ export default function DomainsOverview({ projects }) {
               style={{ background: `${d.color}08`, border: `1px solid ${d.color}20` }}
             >
               <div className="text-xl">{d.icon}</div>
-              <div className="text-xs font-bold text-navy mt-1">{d.label}</div>
-              <div className="text-[11px] text-gray-400">{dp.length} projet{dp.length > 1 ? "s" : ""}</div>
+              <div className="text-sm font-bold text-ink mt-1">{d.label}</div>
+              <div className="text-[13px] text-ink-muted">{dp.length} projet{dp.length > 1 ? "s" : ""}</div>
               {dp.length > 0 && (
-                <div className="h-[3px] bg-gray-100 rounded-full mt-1.5">
+                <div className="h-[3px] bg-surface-2 rounded-full mt-1.5">
                   <div className="h-full rounded-full transition-all duration-600" style={{ width: `${pr}%`, background: d.color }} />
                 </div>
               )}

@@ -27,13 +27,13 @@ export default function MoodCalendar({ entries, onSelectDate }) {
   return (
     <Card>
       <div className="flex items-center justify-between mb-3">
-        <button onClick={prevMonth} className="bg-none border-none text-gray-400 cursor-pointer text-base px-2">‹</button>
-        <span className="text-sm font-bold text-navy capitalize">{monthLabel}</span>
-        <button onClick={nextMonth} className="bg-none border-none text-gray-400 cursor-pointer text-base px-2">›</button>
+        <button onClick={prevMonth} className="bg-none border-none text-ink-muted cursor-pointer text-base px-2">‹</button>
+        <span className="text-base font-bold text-ink capitalize">{monthLabel}</span>
+        <button onClick={nextMonth} className="bg-none border-none text-ink-muted cursor-pointer text-base px-2">›</button>
       </div>
       <div className="grid grid-cols-7 gap-1">
         {WEEKDAY_NAMES.map(d => (
-          <div key={d} className="text-[10px] text-gray-400 text-center font-semibold pb-1">{d}</div>
+          <div key={d} className="text-[12px] text-ink-muted text-center font-semibold pb-1">{d}</div>
         ))}
         {dates.map(({ date, currentMonth }) => {
           const entry = entryMap[date];
@@ -42,16 +42,16 @@ export default function MoodCalendar({ entries, onSelectDate }) {
             <button
               key={date}
               onClick={() => entry && onSelectDate(entry)}
-              className={`w-full aspect-square rounded-lg flex items-center justify-center text-[11px] border-none cursor-pointer font-nunito transition-all ${
+              className={`w-full aspect-square rounded-lg flex items-center justify-center text-[13px] border-none cursor-pointer font-nunito transition-all ${
                 !currentMonth ? "opacity-30" : ""
               } ${isToday ? "ring-2 ring-coral" : ""} ${
-                entry ? "bg-white hover:bg-gray-50" : "bg-transparent"
+                entry ? "bg-surface hover:bg-surface-3" : "bg-transparent"
               }`}
             >
               {entry ? (
                 <span className="text-base">{entry.mood.emoji}</span>
               ) : (
-                <span className="text-gray-300">{new Date(date).getDate()}</span>
+                <span className="text-ink-soft">{new Date(date).getDate()}</span>
               )}
             </button>
           );

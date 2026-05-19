@@ -8,11 +8,11 @@ export default function CopilotCard({ aiMsg, aiLoading, askAI, aiPlanWeek }) {
 
   return (
     <div className="bg-gradient-to-br from-navy to-[#5A5F7A] rounded-2xl p-4.5 text-white shadow-lg">
-      <div className="text-xs font-bold opacity-60 mb-1.5">🤖 COPILOTE IA</div>
+      <div className="text-sm font-bold opacity-60 mb-1.5">🤖 COPILOTE IA</div>
       {aiMsg ? (
-        <div className="text-[13px] leading-relaxed mb-2.5 animate-fade-in">{aiMsg}</div>
+        <div className="text-[15px] leading-relaxed mb-2.5 animate-fade-in">{aiMsg}</div>
       ) : (
-        <div className="text-[13px] opacity-70 mb-2.5">Je connais tous tes projets. Demande-moi ce que tu veux.</div>
+        <div className="text-[15px] opacity-70 mb-2.5">Je connais tous tes projets. Demande-moi ce que tu veux.</div>
       )}
       <div className="flex gap-1.5 flex-wrap">
         {buttons.map(btn => (
@@ -20,7 +20,7 @@ export default function CopilotCard({ aiMsg, aiLoading, askAI, aiPlanWeek }) {
             key={btn.l}
             onClick={() => btn.p ? askAI(btn.p) : aiPlanWeek()}
             disabled={aiLoading}
-            className="px-3 py-1.5 rounded-lg border border-white/20 bg-white/10 text-white text-[11px] font-semibold cursor-pointer font-nunito disabled:opacity-50 hover:bg-white/20 transition-all"
+            className="px-3 py-1.5 rounded-lg border border-white/20 bg-surface/10 text-white text-[13px] font-semibold cursor-pointer font-nunito disabled:opacity-50 hover:bg-surface/20 transition-all"
           >
             {btn.l}
           </button>

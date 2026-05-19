@@ -13,7 +13,7 @@ export default function ProgressRing({ progress, size = 60, stroke = 5, color = 
           className="transition-all duration-600"
         />
       </svg>
-      <div className="absolute inset-0 flex items-center justify-center font-bold text-navy"
+      <div className="absolute inset-0 flex items-center justify-center font-bold text-ink"
         style={{ fontSize: size * 0.22 }}>
         {children || `${Math.round(progress)}%`}
       </div>

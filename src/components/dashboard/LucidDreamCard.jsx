@@ -52,7 +52,7 @@ export default function LucidDreamCard() {
   return (
     <Card>
       <div className="flex items-center justify-between mb-2">
-        <div className="text-xs font-bold text-coral">🌙 RÊVE LUCIDE</div>
+        <div className="text-sm font-bold text-coral">🌙 RÊVE LUCIDE</div>
         <div className="flex gap-1">
           {dots.map((on, i) => (
             <div
@@ -64,8 +64,8 @@ export default function LucidDreamCard() {
         </div>
       </div>
 
-      <div className="text-[11px] text-gray-400 mb-2.5 leading-relaxed">
-        Reality checks : <b className="text-navy">{checksToday}/{target}</b> aujourd'hui · Rappel rêves : <b className="text-navy">{dreamRecallStreak}j</b>
+      <div className="text-[13px] text-ink-muted mb-2.5 leading-relaxed">
+        Reality checks : <b className="text-ink">{checksToday}/{target}</b> aujourd'hui · Rappel rêves : <b className="text-ink">{dreamRecallStreak}j</b>
         {lucidStreak > 0 && <> · Lucides : <b className="text-coral">{lucidStreak}j</b> 🔥</>}
       </div>
 
@@ -73,13 +73,13 @@ export default function LucidDreamCard() {
         <div className="flex flex-col gap-1.5">
           <button
             onClick={startCheck}
-            className="w-full py-2.5 rounded-xl border-none bg-navy text-white text-[13px] font-semibold cursor-pointer font-nunito"
+            className="w-full py-2.5 rounded-xl border-none bg-navy text-white text-[15px] font-semibold cursor-pointer font-nunito"
           >
             ✋ Reality check
           </button>
           <button
             onClick={() => setPhase('dream')}
-            className="w-full py-2 rounded-xl border border-coral bg-transparent text-coral text-[12px] font-semibold cursor-pointer font-nunito"
+            className="w-full py-2 rounded-xl border border-coral bg-transparent text-coral text-[14px] font-semibold cursor-pointer font-nunito"
           >
             📓 Noter un rêve {hadLucidToday && '· ✨ lucide aujourd\'hui'}
           </button>
@@ -88,28 +88,28 @@ export default function LucidDreamCard() {
 
       {phase === 'check' && (
         <div className="flex flex-col gap-2 animate-fade-in">
-          <div className="text-[12px] text-navy text-center py-3 px-2 bg-[#f5f2ee] rounded-xl leading-relaxed">
+          <div className="text-[14px] text-ink text-center py-3 px-2 bg-surface-2 rounded-xl leading-relaxed">
             <b>Suis-je en train de rêver ?</b>
             <br />
-            <span className="text-[11px] text-gray-500">{tip}</span>
+            <span className="text-[13px] text-ink-muted">{tip}</span>
           </div>
           <div className="flex gap-1.5">
             <button
               onClick={() => finishCheck(false)}
-              className="flex-1 py-2 rounded-xl border-none bg-sage text-white text-[12px] font-semibold cursor-pointer font-nunito"
+              className="flex-1 py-2 rounded-xl border-none bg-sage text-white text-[14px] font-semibold cursor-pointer font-nunito"
             >
               😐 Éveillé
             </button>
             <button
               onClick={() => finishCheck(true)}
-              className="flex-1 py-2 rounded-xl border-none bg-coral text-white text-[12px] font-semibold cursor-pointer font-nunito"
+              className="flex-1 py-2 rounded-xl border-none bg-coral text-white text-[14px] font-semibold cursor-pointer font-nunito"
             >
               ✨ Je rêve !
             </button>
           </div>
           <button
             onClick={() => setPhase('idle')}
-            className="text-[10px] text-gray-400 underline bg-transparent border-none cursor-pointer font-nunito"
+            className="text-[12px] text-ink-muted underline bg-transparent border-none cursor-pointer font-nunito"
           >
             Annuler
           </button>
@@ -124,9 +124,9 @@ export default function LucidDreamCard() {
             placeholder="Note rapidement ton rêve : lieux, personnes, émotions, indices bizarres..."
             rows={4}
             autoFocus
-            className="w-full text-[12px] py-2 px-3 rounded-xl border border-gray-200 bg-white font-nunito resize-none focus:outline-none focus:border-coral"
+            className="w-full text-[14px] py-2 px-3 rounded-xl border border-line bg-surface font-nunito resize-none focus:outline-none focus:border-coral"
           />
-          <label className="flex items-center gap-2 text-[12px] text-navy cursor-pointer">
+          <label className="flex items-center gap-2 text-[14px] text-ink cursor-pointer">
             <input
               type="checkbox"
               checked={dreamLucid}
@@ -138,14 +138,14 @@ export default function LucidDreamCard() {
           <div className="flex gap-1.5">
             <button
               onClick={() => { setPhase('idle'); setDreamText(''); setDreamLucid(false); }}
-              className="px-3 py-2 rounded-xl border border-gray-200 bg-transparent text-gray-400 text-[12px] cursor-pointer font-nunito"
+              className="px-3 py-2 rounded-xl border border-line bg-transparent text-ink-muted text-[14px] cursor-pointer font-nunito"
             >
               Annuler
             </button>
             <button
               onClick={submitDream}
               disabled={!dreamText.trim()}
-              className="flex-1 py-2 rounded-xl border-none bg-navy text-white text-[12px] font-semibold cursor-pointer font-nunito disabled:opacity-40"
+              className="flex-1 py-2 rounded-xl border-none bg-navy text-white text-[14px] font-semibold cursor-pointer font-nunito disabled:opacity-40"
             >
               Enregistrer
             </button>
@@ -154,10 +154,10 @@ export default function LucidDreamCard() {
       )}
 
       {phase === 'idle' && dreamsToday.length > 0 && (
-        <div className="mt-2.5 pt-2 border-t border-gray-100">
-          <div className="text-[10px] text-gray-400 font-semibold mb-1">AUJOURD'HUI</div>
+        <div className="mt-2.5 pt-2 border-t border-line-soft">
+          <div className="text-[12px] text-ink-muted font-semibold mb-1">AUJOURD'HUI</div>
           {dreamsToday.map(d => (
-            <div key={d.id} className="text-[11px] text-navy py-1 leading-relaxed">
+            <div key={d.id} className="text-[13px] text-ink py-1 leading-relaxed">
               {d.lucid && <span className="text-coral">✨ </span>}
               {d.text}
             </div>
@@ -166,31 +166,31 @@ export default function LucidDreamCard() {
       )}
 
       {phase === 'idle' && dreams.length > 0 && (
-        <div className="mt-2.5 pt-2 border-t border-gray-100">
+        <div className="mt-2.5 pt-2 border-t border-line-soft">
           <button
             onClick={() => setShowHistory(s => !s)}
-            className="w-full text-left text-[11px] text-gray-500 font-semibold bg-transparent border-none cursor-pointer p-0 font-nunito"
+            className="w-full text-left text-[13px] text-ink-muted font-semibold bg-transparent border-none cursor-pointer p-0 font-nunito"
           >
             {showHistory ? '▾' : '▸'} Historique ({dreams.length})
           </button>
           {showHistory && (
             <div className="flex flex-col gap-1 mt-2 max-h-64 overflow-y-auto animate-fade-in">
               {[...dreams].reverse().slice(0, 30).map(d => (
-                <div key={d.id} className="flex items-start gap-2 text-[11px] py-1.5 px-2 rounded-lg bg-[#fafafa]">
+                <div key={d.id} className="flex items-start gap-2 text-[13px] py-1.5 px-2 rounded-lg bg-surface-3">
                   <button
                     onClick={() => toggleDreamLucid(d.id)}
-                    className="bg-transparent border-none cursor-pointer text-[12px] mt-0.5"
+                    className="bg-transparent border-none cursor-pointer text-[14px] mt-0.5"
                     title="Basculer lucide"
                   >
                     {d.lucid ? '✨' : '·'}
                   </button>
                   <div className="flex-1">
-                    <div className="text-gray-400 text-[10px] tabular-nums">{formatDate(d.timestamp)}</div>
-                    <div className="text-navy">{d.text}</div>
+                    <div className="text-ink-muted text-[12px] tabular-nums">{formatDate(d.timestamp)}</div>
+                    <div className="text-ink">{d.text}</div>
                   </div>
                   <button
                     onClick={() => removeDream(d.id)}
-                    className="text-gray-300 text-[10px] bg-transparent border-none cursor-pointer hover:text-coral"
+                    className="text-ink-soft text-[12px] bg-transparent border-none cursor-pointer hover:text-coral"
                     title="Supprimer"
                   >
                     ×

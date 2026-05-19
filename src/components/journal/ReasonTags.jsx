@@ -9,13 +9,13 @@ export default function ReasonTags({ selected, onToggle }) {
 
   const colorMap = {
     positive: { bg: "bg-sage/15", activeBg: "bg-sage", text: "text-sage", activeText: "text-white" },
-    neutral: { bg: "bg-sand/20", activeBg: "bg-sand", text: "text-navy", activeText: "text-navy" },
+    neutral: { bg: "bg-sand/20", activeBg: "bg-sand", text: "text-ink", activeText: "text-ink" },
     negative: { bg: "bg-coral/10", activeBg: "bg-coral", text: "text-coral", activeText: "text-white" },
   };
 
   return (
     <div>
-      <div className="text-xs font-bold text-navy mb-2">Pourquoi ? <span className="font-normal text-gray-400">(plusieurs choix)</span></div>
+      <div className="text-sm font-bold text-ink mb-2">Pourquoi ? <span className="font-normal text-ink-muted">(plusieurs choix)</span></div>
       <div className="flex flex-wrap gap-1.5">
         {allTags.map(tag => {
           const isSelected = selected.includes(tag.text);
@@ -24,7 +24,7 @@ export default function ReasonTags({ selected, onToggle }) {
             <button
               key={tag.text}
               onClick={() => onToggle(tag.text)}
-              className={`px-3 py-1.5 rounded-full text-[11px] font-semibold cursor-pointer font-nunito border-none transition-all ${
+              className={`px-3 py-1.5 rounded-full text-[13px] font-semibold cursor-pointer font-nunito border-none transition-all ${
                 isSelected ? `${c.activeBg} ${c.activeText}` : `${c.bg} ${c.text}`
               }`}
             >

@@ -7,15 +7,15 @@ export default function DailyPlan({ todayTasks, overdueTasks, upcomingTasks, loa
   if (!hasPlan) {
     return (
       <Card>
-        <div className="text-xs font-bold text-navy mb-2">📋 PLAN DE LA SEMAINE</div>
+        <div className="text-sm font-bold text-ink mb-2">📋 PLAN DE LA SEMAINE</div>
         <div className="text-center py-4">
-          <div className="text-[13px] text-gray-400 mb-3">
+          <div className="text-[15px] text-ink-muted mb-3">
             Pas encore de plan cette semaine. L'IA va analyser tes projets et créer un planning réaliste.
           </div>
           <button
             onClick={generate}
             disabled={loading}
-            className="px-5 py-2.5 rounded-xl border-none bg-gradient-to-r from-coral to-[#c94c30] text-white text-sm font-bold cursor-pointer font-nunito disabled:opacity-60 transition-all hover:shadow-lg"
+            className="px-5 py-2.5 rounded-xl border-none bg-gradient-to-r from-coral to-[#c94c30] text-white text-base font-bold cursor-pointer font-nunito disabled:opacity-60 transition-all hover:shadow-lg"
           >
             {loading ? <Spinner size={16} /> : "🤖 Générer mon plan"}
           </button>
@@ -29,7 +29,7 @@ export default function DailyPlan({ todayTasks, overdueTasks, upcomingTasks, loa
       {/* Overdue tasks */}
       {overdueTasks.length > 0 && (
         <Card className="border-2 border-coral/20">
-          <div className="text-xs font-bold text-coral mb-2">⚠️ EN RETARD ({overdueTasks.length})</div>
+          <div className="text-sm font-bold text-coral mb-2">⚠️ EN RETARD ({overdueTasks.length})</div>
           {overdueTasks.map(task => (
             <TaskItem
               key={task.id}
@@ -46,11 +46,11 @@ export default function DailyPlan({ todayTasks, overdueTasks, upcomingTasks, loa
       {/* Today's tasks */}
       <Card>
         <div className="flex items-center justify-between mb-2">
-          <div className="text-xs font-bold text-navy">🎯 AUJOURD'HUI</div>
+          <div className="text-sm font-bold text-ink">🎯 AUJOURD'HUI</div>
           <button
             onClick={generate}
             disabled={loading}
-            className="text-[10px] text-coral bg-none border-none cursor-pointer font-nunito font-semibold"
+            className="text-[12px] text-coral bg-none border-none cursor-pointer font-nunito font-semibold"
           >
             {loading ? "..." : "🔄 Regénérer"}
           </button>
@@ -66,7 +66,7 @@ export default function DailyPlan({ todayTasks, overdueTasks, upcomingTasks, loa
             />
           ))
         ) : (
-          <div className="text-center text-gray-300 py-2 text-xs">
+          <div className="text-center text-ink-soft py-2 text-sm">
             Rien de prévu aujourd'hui — profite ou avance librement !
           </div>
         )}
@@ -75,16 +75,16 @@ export default function DailyPlan({ todayTasks, overdueTasks, upcomingTasks, loa
       {/* Upcoming preview */}
       {upcomingTasks.length > 0 && (
         <Card>
-          <div className="text-xs font-bold text-navy mb-2">📅 À VENIR</div>
+          <div className="text-sm font-bold text-ink mb-2">📅 À VENIR</div>
           {groupByDay(upcomingTasks).slice(0, 3).map(({ day, tasks }) => (
             <div key={day} className="mb-2 last:mb-0">
-              <div className="text-[10px] font-semibold text-gray-400 mb-1">
+              <div className="text-[12px] font-semibold text-ink-muted mb-1">
                 {new Date(day).toLocaleDateString("fr-FR", { weekday: "long", day: "numeric" })}
               </div>
               {tasks.map(task => (
                 <div key={task.id} className="flex items-center gap-2 py-1 pl-2">
-                  <span className="text-xs">{DOMAINS[task.domain]?.icon || "📌"}</span>
-                  <span className="text-[11px] text-gray-500">{task.taskText}</span>
+                  <span className="text-sm">{DOMAINS[task.domain]?.icon || "📌"}</span>
+                  <span className="text-[13px] text-ink-muted">{task.taskText}</span>
                 </div>
               ))}
             </div>
@@ -102,11 +102,11 @@ function TaskItem({ task, onDone, onSkip, onPostpone, overdue }) {
   const domainColor = DOMAINS[task.domain]?.color || "#999";
 
   return (
-    <div className={`flex items-start gap-2.5 py-2 border-b border-gray-50 last:border-0 ${isDone || isSkipped ? "opacity-50" : ""}`}>
+    <div className={`flex items-start gap-2.5 py-2 border-b border-line-soft last:border-0 ${isDone || isSkipped ? "opacity-50" : ""}`}>
       <button
         onClick={onDone}
         disabled={isDone || isSkipped}
-        className="w-6 h-6 rounded-md shrink-0 mt-0.5 flex items-center justify-center text-white text-[11px] cursor-pointer border-none"
+        className="w-6 h-6 rounded-md shrink-0 mt-0.5 flex items-center justify-center text-white text-[13px] cursor-pointer border-none"
         style={{
           background: isDone ? "#81B29A" : "transparent",
           border: `2px solid ${isDone ? "#81B29A" : "#ddd"}`,
@@ -115,10 +115,10 @@ function TaskItem({ task, onDone, onSkip, onPostpone, overdue }) {
         {isDone && "✓"}
       </button>
       <div className="flex-1 min-w-0">
-        <div className={`text-[13px] font-semibold leading-snug ${isDone ? "line-through text-gray-300" : isSkipped ? "line-through text-gray-300" : "text-navy"}`}>
+        <div className={`text-[15px] font-semibold leading-snug ${isDone ? "line-through text-ink-soft" : isSkipped ? "line-through text-ink-soft" : "text-ink"}`}>
           {task.taskText}
         </div>
-        <div className="text-[10px] mt-0.5 flex items-center gap-1">
+        <div className="text-[12px] mt-0.5 flex items-center gap-1">
           <span>{domainIcon}</span>
           <span style={{ color: domainColor }}>{task.projectName}</span>
         </div>
@@ -128,20 +128,20 @@ function TaskItem({ task, onDone, onSkip, onPostpone, overdue }) {
           <button
             onClick={onPostpone}
             title="Reporter à demain"
-            className="bg-none border-none cursor-pointer text-xs p-1 opacity-40 hover:opacity-100"
+            className="bg-none border-none cursor-pointer text-sm p-1 opacity-40 hover:opacity-100"
           >
             ➡️
           </button>
           <button
             onClick={onSkip}
             title="Passer"
-            className="bg-none border-none cursor-pointer text-xs p-1 opacity-40 hover:opacity-100"
+            className="bg-none border-none cursor-pointer text-sm p-1 opacity-40 hover:opacity-100"
           >
             ✕
           </button>
         </div>
       )}
-      {isSkipped && <span className="text-[10px] text-gray-300">passé</span>}
+      {isSkipped && <span className="text-[12px] text-ink-soft">passé</span>}
     </div>
   );
 }
