@@ -5,11 +5,13 @@ import ProjectAIActions from './ProjectAIActions';
 import StepItem from './StepItem';
 import { DOMAINS } from '../../lib/constants';
 import { getProgress } from '../../utils/progress';
+import { leafStats } from '../../utils/stepTree';
 
 export default function ProjectCard({
   project, expanded, onToggleExpand, weekFocus, onToggleWeekFocus,
   onToggleStep, onDeleteStep, onAddStep, onDeleteProject,
   onBreakdown, onAdvice, onReorganize, onUnblock, onCelebrate, onDetailStep,
+  onCustomModify,
   isActionLoading, projMsg, onClearMsg,
 }) {
   const [adding, setAdding] = useState(false);
@@ -19,8 +21,7 @@ export default function ProjectCard({
   const isF = weekFocus.includes(project.id);
   const loading = isActionLoading;
   const msg = projMsg;
-  const doneC = project.steps?.filter(s => s.done).length || 0;
-  const totalC = project.steps?.length || 0;
+  const { done: doneC, total: totalC } = leafStats(project.steps);
 
   const handleAddStep = () => {
     if (newText.trim()) {
@@ -35,7 +36,6 @@ export default function ProjectCard({
       className="bg-surface rounded-2xl overflow-hidden mb-2 shadow-sm transition-all"
       style={{ border: expanded ? `2px solid ${d.color}30` : "1px solid transparent" }}
     >
-      {/* Header */}
       <div className="flex items-center gap-2.5 px-3.5 py-3 cursor-pointer" onClick={onToggleExpand}>
         <ProgressRing progress={pr} size={44} stroke={3} color={pr === 100 ? "#81B29A" : d.color} />
         <div className="flex-1">
@@ -60,24 +60,22 @@ export default function ProjectCard({
         <span className={`text-ink-soft text-base transition-transform ${expanded ? "rotate-90" : ""}`}>›</span>
       </div>
 
-      {/* Progress bar */}
       {totalC > 0 && (
         <div className="h-0.5 bg-surface-2">
           <div className="h-full transition-all duration-600" style={{ width: `${pr}%`, background: pr === 100 ? "#81B29A" : d.color }} />
         </div>
       )}
 
-      {/* Expanded content */}
       {expanded && (
         <div className="px-3.5 pt-2.5 pb-3.5 animate-fade-in">
           <ProjectAIActions
-            project={project}
             domainColor={d.color}
             onBreakdown={onBreakdown}
             onAdvice={onAdvice}
             onReorganize={onReorganize}
             onUnblock={onUnblock}
             onCelebrate={onCelebrate}
+            onCustomModify={onCustomModify}
             isLoading={(act) => loading(`${project.id}:${act}`)}
           />
 
@@ -88,21 +86,24 @@ export default function ProjectCard({
             </div>
           )}
 
-          {loading && <div className="text-center py-3"><Spinner size={20} /></div>}
+          {(loading(`${project.id}:breakdown`) || loading(`${project.id}:reorg`) || loading(`${project.id}:modify`) || loading(`${project.id}:detail`)) && (
+            <div className="text-center py-3"><Spinner size={20} /></div>
+          )}
 
-          {project.steps?.map((step, i) => (
+          {project.steps?.map(step => (
             <StepItem
               key={step.id}
               step={step}
-              isLast={i === project.steps.length - 1}
-              onToggle={() => onToggleStep(project.id, step.id)}
-              onDelete={() => onDeleteStep(project.id, step.id)}
-              onDetail={() => onDetailStep(project, step)}
-              loading={!!loading}
+              depth={0}
+              onToggle={(sid) => onToggleStep(project.id, sid)}
+              onDelete={(sid) => onDeleteStep(project.id, sid)}
+              onDetail={(s) => onDetailStep(project, s)}
+              onAddChild={(parentId, text) => onAddStep(project.id, text, parentId)}
+              loading={loading(`${project.id}:detail`)}
             />
           ))}
 
-          {totalC === 0 && !loading && (
+          {totalC === 0 && !loading(`${project.id}:breakdown`) && (
             <div className="text-center py-3 text-ink-soft text-sm">
               Clique "🔪 Découper" pour structurer ce projet avec l'IA
             </div>

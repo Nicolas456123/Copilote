@@ -1,12 +1,24 @@
-import { DOMAINS } from '../lib/constants';
+import { leafStats } from './stepTree';
 
 export function getProgress(project) {
-  if (!project.steps || project.steps.length === 0) return 0;
-  return (project.steps.filter(s => s.done).length / project.steps.length) * 100;
+  const { total, done } = leafStats(project.steps);
+  if (total === 0) return 0;
+  return (done / total) * 100;
 }
 
 export function getNextStep(project) {
-  return project.steps?.find(s => !s.done) || null;
+  const walk = (arr) => {
+    for (const s of arr || []) {
+      if (s.children?.length) {
+        const found = walk(s.children);
+        if (found) return found;
+      } else if (!s.done) {
+        return s;
+      }
+    }
+    return null;
+  };
+  return walk(project.steps);
 }
 
 export function domainProgress(domainKey, projects) {
