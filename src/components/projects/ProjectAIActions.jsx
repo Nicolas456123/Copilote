@@ -2,7 +2,7 @@ import AIBtn from '../ui/AIBtn';
 
 export default function ProjectAIActions({ project, domainColor, onBreakdown, onAdvice, onReorganize, onUnblock, onCelebrate, isLoading }) {
   return (
-    <div className="bg-[#f8f6f3] rounded-lg p-2.5 mb-2.5">
+    <div className="bg-surface-2 rounded-lg p-2.5 mb-2.5">
       <div className="text-[12px] font-bold text-ink/40 mb-1.5 tracking-wide">🤖 ACTIONS IA</div>
       <div className="flex gap-1.5 flex-wrap">
         <AIBtn icon="🔪" label="Découper" onClick={onBreakdown} loading={isLoading("breakdown")} />

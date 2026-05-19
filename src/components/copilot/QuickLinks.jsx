@@ -12,7 +12,7 @@ export default function QuickLinks() {
             href={l.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-3 py-1.5 rounded-lg bg-surface-2 text-ink text-[13px] font-semibold no-underline flex items-center gap-1 hover:bg-[#ebe6df] transition-colors"
+            className="px-3 py-1.5 rounded-lg bg-surface-2 text-ink text-[13px] font-semibold no-underline flex items-center gap-1 hover:opacity-80 transition-opacity"
           >
             {l.icon} {l.label}
           </a>
