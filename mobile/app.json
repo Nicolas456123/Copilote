@@ -4,12 +4,10 @@
     "slug": "copilote",
     "version": "0.1.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
     "scheme": "copilote",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#FFF8F0"
     },
@@ -23,7 +21,6 @@
     "android": {
       "package": "com.nicolas.copilote",
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFF8F0"
       }
     },
@@ -33,7 +30,6 @@
       [
         "expo-notifications",
         {
-          "icon": "./assets/notification-icon.png",
           "color": "#E07A5F"
         }
       ]
