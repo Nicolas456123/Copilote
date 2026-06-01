@@ -5,6 +5,7 @@ import HabitudesPage from './pages/HabitudesPage';
 import ProjetsPage from './pages/ProjetsPage';
 import FocusPage from './pages/FocusPage';
 import JournalPage from './pages/JournalPage';
+import PlusPage from './pages/PlusPage';
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
           <Route path="projets" element={<ProjetsPage />} />
           <Route path="focus" element={<FocusPage />} />
           <Route path="journal" element={<JournalPage />} />
+          <Route path="plus" element={<PlusPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
