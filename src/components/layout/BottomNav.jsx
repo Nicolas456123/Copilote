@@ -1,11 +1,12 @@
 import { NavLink } from 'react-router-dom';
 
 const tabs = [
-  { to: "/", icon: "🏠", label: "Accueil" },
+  { to: "/", icon: "🧭", label: "Cap" },
   { to: "/habitudes", icon: "✅", label: "Habitudes" },
   { to: "/projets", icon: "📊", label: "Projets" },
   { to: "/focus", icon: "🎯", label: "Focus" },
   { to: "/journal", icon: "📝", label: "Journal" },
+  { to: "/plus", icon: "✨", label: "Plus" },
 ];
 
 export default function BottomNav() {
@@ -17,12 +18,12 @@ export default function BottomNav() {
           to={t.to}
           end={t.to === "/"}
           className={({ isActive }) =>
-            `flex-1 py-2.5 rounded-xl flex flex-col items-center gap-0.5 text-[12px] font-semibold no-underline transition-all ${
+            `flex-1 py-2 rounded-xl flex flex-col items-center gap-0.5 text-[10px] font-semibold no-underline transition-all ${
               isActive ? "bg-navy text-white" : "bg-transparent text-ink-muted"
             }`
           }
         >
-          <span className="text-lg">{t.icon}</span>
+          <span className="text-base">{t.icon}</span>
           {t.label}
         </NavLink>
       ))}
