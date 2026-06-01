@@ -24,7 +24,7 @@ export default function SkillLadder({ ctx }) {
     <Card>
       <div className="flex items-center justify-between mb-0.5">
         <div className="text-[15px] font-extrabold text-ink">🪜 La juste marche</div>
-        {ctx.reserveSkills.length > 0 && (
+        {ctx.reserveSkills.length > 0 && ctx.activeSkills.length > 0 && (
           <button
             onClick={() => setShowReserve(s => !s)}
             className="text-[12px] font-semibold text-ink-muted hover:text-ink transition-colors"
@@ -33,8 +33,11 @@ export default function SkillLadder({ ctx }) {
           </button>
         )}
       </div>
-      <p className="text-[12px] text-ink-muted mb-3 leading-snug">
+      <p className="text-[12px] text-ink-muted mb-2 leading-snug">
         Une action calibrée sur ton niveau exact. Tu n'as pas à juger si c'est trop — le système ajuste.
+      </p>
+      <p className="text-[12px] text-sage font-semibold italic mb-3 leading-snug">
+        « Aucun jour ne doit être totalement vide de progression. »
       </p>
 
       <div className="flex flex-col gap-2.5">
@@ -51,16 +54,19 @@ export default function SkillLadder({ ctx }) {
           />
         ))}
         {ctx.activeSkills.length === 0 && (
-          <p className="text-[13px] text-ink-muted text-center py-3">
-            Aucune compétence active. Ajoutes-en une ou réactive-la depuis la réserve.
+          <p className="text-[13px] text-ink-muted text-center py-2">
+            Choisis les compétences que tu veux suivre maintenant{ctx.reserveSkills.length > 0 ? ' ci-dessous' : ''}, ou ajoutes-en une nouvelle.
           </p>
         )}
       </div>
 
-      {/* Réserve : compétences mises de côté (anti-surcharge) */}
-      {showReserve && ctx.reserveSkills.length > 0 && (
+      {/* Réserve : compétences mises de côté (anti-surcharge).
+          Affichée d'office quand rien n'est actif, pour curer ses focus. */}
+      {(showReserve || ctx.activeSkills.length === 0) && ctx.reserveSkills.length > 0 && (
         <div className="mt-3 pt-3 border-t border-line-soft flex flex-col gap-1.5">
-          <div className="text-[11px] font-bold uppercase tracking-wider text-ink-muted mb-0.5">En réserve</div>
+          <div className="text-[11px] font-bold uppercase tracking-wider text-ink-muted mb-0.5">
+            {ctx.activeSkills.length === 0 ? 'À activer' : 'En réserve'}
+          </div>
           {ctx.reserveSkills.map(s => {
             const t = tierOf(s.level);
             return (

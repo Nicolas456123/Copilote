@@ -99,7 +99,7 @@ export function seedSkills() {
     name: s.name,
     domain: s.domain,
     level: s.level,
-    active: i < 3, // 3 actives au départ, le reste en réserve (anti-surcharge)
+    active: false, // exemples gardés mais secondaires : à activer soi-même
     currentAction: null, // généré paresseusement / fallback à l'affichage
     history: [],
     updatedAt: new Date().toISOString(),
