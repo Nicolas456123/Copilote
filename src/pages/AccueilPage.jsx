@@ -1,10 +1,8 @@
 import { useOutletContext, Link } from 'react-router-dom';
 import NorthStar from '../components/cap/NorthStar';
 import SkillLadder from '../components/cap/SkillLadder';
-import ContinuityStreak from '../components/cap/ContinuityStreak';
 
-// L'accueil : la page d'arrivée. Elle ne concerne QUE le cap et la
-// progression calibrée. Le reste (projets, IA, focus, journal…) vit ailleurs.
+// L'accueil va à l'essentiel : le cap, puis le plan. Rien d'autre.
 export default function AccueilPage() {
   const ctx = useOutletContext();
 
@@ -17,13 +15,12 @@ export default function AccueilPage() {
         reset={ctx.resetObjective}
       />
       <SkillLadder ctx={ctx} />
-      <ContinuityStreak streak={ctx.streak} />
 
       <Link
         to="/plus"
         className="text-center text-[13px] font-semibold text-ink-muted py-2 no-underline hover:text-ink transition-colors"
       >
-        Le reste (projets, focus, IA, journal…) →
+        Le reste →
       </Link>
     </div>
   );

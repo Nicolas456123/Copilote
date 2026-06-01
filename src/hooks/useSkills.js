@@ -16,19 +16,19 @@ export function useSkills() {
   const persist = useCallback((next) => {
     skillsRef.current = next;
     setSkills(next);
-    updateSetting("skills", JSON.stringify(next)).catch(() => {});
+    updateSetting("plan", JSON.stringify(next)).catch(() => {});
   }, []);
 
   useEffect(() => {
     fetchSettings()
       .then(data => {
         let parsed = [];
-        if (data.skills) {
-          try { parsed = JSON.parse(data.skills); } catch { parsed = []; }
+        if (data.plan) {
+          try { parsed = JSON.parse(data.plan); } catch { parsed = []; }
         }
         if (!Array.isArray(parsed) || parsed.length === 0) {
           parsed = seedSkills();
-          updateSetting("skills", JSON.stringify(parsed)).catch(() => {});
+          updateSetting("plan", JSON.stringify(parsed)).catch(() => {});
         }
         skillsRef.current = parsed;
         setSkills(parsed);
@@ -110,6 +110,10 @@ export function useSkills() {
     updateOne(id, { level: Math.max(0, Math.min(100, Math.round(level))) });
   }, [updateOne]);
 
+  const setHorizon = useCallback((id, field, value) => {
+    updateOne(id, { [field]: value });
+  }, [updateOne]);
+
   const setActive = useCallback((id, active) => updateOne(id, { active }), [updateOne]);
 
   const remove = useCallback((id) => {
@@ -122,6 +126,6 @@ export function useSkills() {
     reserveSkills: skills.filter(s => !s.active),
     generatingId,
     skillsLoaded: loaded,
-    generate, complete, addSkill, setLevel, setActive, remove,
+    generate, complete, addSkill, setLevel, setHorizon, setActive, remove,
   };
 }

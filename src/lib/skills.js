@@ -49,17 +49,18 @@ export function applyFeedback(level, key) {
 }
 
 // Action de secours (sans IA) : le système reste utilisable hors-ligne
-// ou si la clé API manque. Toujours calibrée par palier.
+// ou si la clé API manque. Toujours calibrée par palier, orientée objectif.
 export function fallbackAction(skill) {
   const t = tierOf(skill.level).index;
+  const goal = skill.midTerm || skill.name;
   const templates = [
-    { action: `Explore les bases de ${skill.name} : 10 min de découverte, sans pression.`, minutes: 10 },
-    { action: `Pratique un fondamental de ${skill.name} de façon délibérée.`, minutes: 15 },
-    { action: `Travaille un exercice concret de ${skill.name}, un cran au-dessus de d'habitude.`, minutes: 20 },
-    { action: `Applique ${skill.name} à une vraie tâche un peu exigeante.`, minutes: 30 },
-    { action: `Affine un détail de maîtrise en ${skill.name}, ou transmets-le.`, minutes: 30 },
+    { action: `Premier petit pas vers « ${goal} » : 10 min, sans pression.`, minutes: 10 },
+    { action: `Travaille un fondamental utile à « ${goal} ».`, minutes: 15 },
+    { action: `Un exercice concret vers « ${goal} », un cran au-dessus.`, minutes: 20 },
+    { action: `Avance « ${goal} » sur une vraie tâche exigeante.`, minutes: 30 },
+    { action: `Peaufine un détail avancé de « ${goal} », ou transmets-le.`, minutes: 30 },
   ];
-  return { ...templates[t], rationale: "Calibré sur ton palier actuel." };
+  return { ...templates[t], rationale: "Calibré sur ton palier." };
 }
 
 // ── Prompts IA ──────────────────────────────────────────────────────────
@@ -78,32 +79,59 @@ Réponds UNIQUEMENT en JSON, sans markdown : { "action": "<action concrète et p
 export function buildSkillPrompt(skill, correction) {
   const t = tierOf(skill.level);
   const recent = (skill.history || []).slice(-3).map(h => h.note).join(", ") || "aucun retour pour l'instant";
-  const domain = DOMAINS[skill.domain]?.label || "";
   const prev = skill.currentAction?.action ? `\nProposition précédente : "${skill.currentAction.action}".` : "";
   const fix = correction
-    ? `\nNicolas trouve cette proposition incohérente. Ce qui cloche : "${correction}". Corrige le tir et propose une marche vraiment pertinente.`
+    ? `\nNicolas trouve cette proposition incohérente. Ce qui cloche : "${correction}". Corrige le tir et propose une action vraiment pertinente.`
     : "";
-  return `Compétence : "${skill.name}"${domain ? ` (domaine ${domain})` : ""}.
+  return `Domaine : "${skill.name}".${skill.longTerm ? `\nVision long terme : ${skill.longTerm}` : ""}${skill.midTerm ? `\nObjectif moyen terme (priorité actuelle) : ${skill.midTerm}` : ""}
 Niveau actuel : ${Math.round(skill.level)}/100 — palier "${t.name}".
 Derniers retours : ${recent}.${prev}${fix}
-Donne la prochaine marche, calibrée à ce niveau précis.`;
+Propose LA prochaine action concrète qui fait avancer vers l'objectif moyen terme, calibrée à ce niveau précis.`;
 }
 
-// Compétences de départ, tirées du profil de Nicolas. Modifiables.
+// Le plan : un axe par domaine, avec vision long terme et objectif moyen
+// terme. Pré-rempli depuis le profil de Nicolas, entièrement modifiable.
 export function seedSkills() {
   const base = [
-    { name: "Allemand", domain: "learning", level: 16 },
-    { name: "Italien", domain: "learning", level: 30 },
-    { name: "Game Dev (Unreal)", domain: "gamedev", level: 44 },
-    { name: "Production musicale (FL)", domain: "music", level: 38 },
-    { name: "Endurance physique", domain: "health", level: 28 },
+    {
+      domain: "gamedev", level: 44,
+      longTerm: "Sortir Hybelior : un jeu Unreal avec multijoueur, et son univers (lore + livre).",
+      midTerm: "Un prototype jouable d'une boucle de gameplay d'Hybelior.",
+    },
+    {
+      domain: "music", level: 38,
+      longTerm: "Maîtriser electro, orchestral et pop, et publier des morceaux finis.",
+      midTerm: "Terminer la chanson « Falling Again » de bout en bout.",
+    },
+    {
+      domain: "work", level: 55,
+      longTerm: "Exceller comme chargé d'affaires BTP et faire grandir ChantierHub.",
+      midTerm: "Fiabiliser ChantierHub sur un chantier réel en cours.",
+    },
+    {
+      domain: "learning", level: 30,
+      longTerm: "Parler italien et allemand, passer le code moto, élargir culture & sciences.",
+      midTerm: "Atteindre un niveau conversationnel de base en italien.",
+    },
+    {
+      domain: "health", level: 30,
+      longTerm: "Corps solide : sport régulier, réveil 6-7h, alimentation maîtrisée.",
+      midTerm: "Tenir 3 séances de sport par semaine, 4 semaines d'affilée.",
+    },
+    {
+      domain: "daily", level: 25,
+      longTerm: "Un quotidien fluide : courses, maison et admin sans charge mentale.",
+      midTerm: "Mettre en place une routine hebdo simple pour courses + ménage.",
+    },
   ];
   return base.map((s, i) => ({
     id: `sk-${Date.now()}-${i}`,
-    name: s.name,
+    name: DOMAINS[s.domain]?.label || s.domain,
     domain: s.domain,
     level: s.level,
-    active: false, // exemples gardés mais secondaires : à activer soi-même
+    longTerm: s.longTerm,
+    midTerm: s.midTerm,
+    active: true,
     currentAction: null, // généré paresseusement / fallback à l'affichage
     history: [],
     updatedAt: new Date().toISOString(),
