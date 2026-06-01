@@ -5,6 +5,8 @@ import { FEEDBACK, tierOf, tierProgress, fallbackAction } from '../../lib/skills
 
 export default function SkillCard({ skill, generating, complete, generate, setLevel, setActive, remove }) {
   const [open, setOpen] = useState(false);
+  const [fixing, setFixing] = useState(false);
+  const [note, setNote] = useState("");
   const tier = tierOf(skill.level);
   const dom = DOMAINS[skill.domain];
   const act = skill.currentAction || fallbackAction(skill);
@@ -69,13 +71,57 @@ export default function SkillCard({ skill, generating, complete, generate, setLe
         ))}
       </div>
 
-      <button
-        onClick={() => generate(skill.id)}
-        disabled={generating}
-        className="w-full mt-2 text-[12px] font-semibold text-ink-muted hover:text-ink transition-colors disabled:opacity-40"
-      >
-        ↻ Proposer une autre marche
-      </button>
+      <div className="flex items-center justify-center gap-3 mt-2">
+        <button
+          onClick={() => generate(skill.id)}
+          disabled={generating}
+          className="text-[12px] font-semibold text-ink-muted hover:text-ink transition-colors disabled:opacity-40"
+        >
+          ↻ Autre marche
+        </button>
+        <span className="text-line-soft">·</span>
+        <button
+          onClick={() => setFixing(f => !f)}
+          disabled={generating}
+          className="text-[12px] font-semibold text-ink-muted hover:text-ink transition-colors disabled:opacity-40"
+        >
+          🤔 Pas cohérent ?
+        </button>
+      </div>
+
+      {/* Ajuster en direct : Claude corrige selon ce qui cloche */}
+      {fixing && (
+        <div className="mt-2 flex flex-col gap-2">
+          <input
+            value={note}
+            onChange={e => setNote(e.target.value)}
+            placeholder="Qu'est-ce qui cloche ? (ex: trop scolaire, hors-sujet…)"
+            className="w-full px-3 py-2 rounded-lg border border-line-soft bg-surface text-[13px] text-ink outline-none focus:border-navy"
+            autoFocus
+            onKeyDown={e => {
+              if (e.key === 'Enter' && note.trim()) {
+                generate(skill.id, note.trim());
+                setNote(""); setFixing(false);
+              }
+            }}
+          />
+          <div className="flex gap-2">
+            <button
+              onClick={() => { if (note.trim()) { generate(skill.id, note.trim()); setNote(""); setFixing(false); } }}
+              disabled={!note.trim() || generating}
+              className="flex-1 py-1.5 rounded-lg bg-navy text-white text-[12px] font-bold disabled:opacity-40"
+            >
+              Ajuster avec Claude
+            </button>
+            <button
+              onClick={() => { setFixing(false); setNote(""); }}
+              className="py-1.5 px-3 rounded-lg bg-surface border border-line-soft text-[12px] font-semibold text-ink-muted"
+            >
+              Annuler
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Réglages : recalibrer / réserve / supprimer */}
       {open && (

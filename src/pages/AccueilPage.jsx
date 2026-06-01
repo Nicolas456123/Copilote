@@ -10,7 +10,12 @@ export default function AccueilPage() {
 
   return (
     <div className="flex flex-col gap-3.5">
-      <NorthStar />
+      <NorthStar
+        objective={ctx.objective}
+        adjust={ctx.adjustObjective}
+        adjusting={ctx.adjustingObjective}
+        reset={ctx.resetObjective}
+      />
       <SkillLadder ctx={ctx} />
       <ContinuityStreak streak={ctx.streak} />
 

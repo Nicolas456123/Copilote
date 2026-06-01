@@ -46,14 +46,15 @@ export function useSkills() {
   }, [persist]);
 
   // Génère (ou régénère) la prochaine marche, calibrée au niveau courant.
+  // `correction` : ce que Nicolas juge incohérent, pour ajuster en direct.
   // IA d'abord, repli sur une action templatée si indisponible.
-  const generate = useCallback(async (id) => {
+  const generate = useCallback(async (id, correction) => {
     const skill = skillsRef.current.find(s => s.id === id);
     if (!skill) return;
     setGeneratingId(id);
     let action;
     try {
-      const r = await callAIJSON(buildSkillSystem(), buildSkillPrompt(skill));
+      const r = await callAIJSON(buildSkillSystem(), buildSkillPrompt(skill, correction));
       if (r && typeof r.action === 'string' && r.action.trim()) {
         action = {
           action: r.action.trim(),

@@ -75,13 +75,17 @@ Règles strictes :
 Réponds UNIQUEMENT en JSON, sans markdown : { "action": "<action concrète et précise, max 18 mots>", "minutes": <entier 5-45>, "rationale": "<pourquoi cette marche, max 10 mots>" }`;
 }
 
-export function buildSkillPrompt(skill) {
+export function buildSkillPrompt(skill, correction) {
   const t = tierOf(skill.level);
   const recent = (skill.history || []).slice(-3).map(h => h.note).join(", ") || "aucun retour pour l'instant";
   const domain = DOMAINS[skill.domain]?.label || "";
+  const prev = skill.currentAction?.action ? `\nProposition précédente : "${skill.currentAction.action}".` : "";
+  const fix = correction
+    ? `\nNicolas trouve cette proposition incohérente. Ce qui cloche : "${correction}". Corrige le tir et propose une marche vraiment pertinente.`
+    : "";
   return `Compétence : "${skill.name}"${domain ? ` (domaine ${domain})` : ""}.
 Niveau actuel : ${Math.round(skill.level)}/100 — palier "${t.name}".
-Derniers retours : ${recent}.
+Derniers retours : ${recent}.${prev}${fix}
 Donne la prochaine marche, calibrée à ce niveau précis.`;
 }
 
