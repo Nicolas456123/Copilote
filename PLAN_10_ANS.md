@@ -7,21 +7,24 @@
 
 **Ce que ce document répond** *(les quatre questions laissées ouvertes par « Objectif final »)* :
 1. **Ordre de priorité** entre domaines → §2
-2. **Capacités-socles à construire en premier** → §3
-3. **Méthodes d'entraînement** → §3, §4 (phases) et §5 (boîte à outils)
-4. **Cadence de suivi** → §6
+2. **Capacités-socles à construire en premier** → §4
+3. **Méthodes d'entraînement** → §3 (discipline), §4 (socles), §5 (phases) et §6 (boîte à outils)
+4. **Cadence de suivi** → §7
+
+> **En amont de tout : la discipline indépendante de la motivation → §3.** C'est par là qu'on commence — avant même les quatre socles. Tout le reste suppose que tu sais te présenter au travail sans attendre l'envie.
 
 ---
 
-## 1. Comment lire ce plan — sept principes
+## 1. Comment lire ce plan — huit principes
 
-1. **Une boussole, pas un examen.** Le but est de *progresser en continu*, pas de tout cocher d'un coup. Tu auras toujours un domaine « en cours » : c'est l'état normal, pas un échec.
-2. **Les socles d'abord.** Les quatre capacités-socles (santé, attention, apprentissage/mémoire, régulation) multiplient tout le reste. Une année investie ici se rembourse sur les neuf suivantes, dans *chaque* domaine.
-3. **Construis à travers le réel.** Les compétences abstraites ne se travaillent pas dans le vide : elles se bâtissent à travers tes projets concrets — Hybelior, la musique, ChantierHub, les langues, le quotidien. Le plan nomme le **véhicule** de chaque compétence (voir l'annexe).
-4. **1 à 2 domaines en construction active à la fois ; le reste en entretien.** C'est l'antidote direct au sentiment d'être débordé : tu n'es pas censé pousser fort partout en même temps. Un domaine en entretien ne demande que son **minimum quotidien**.
-5. **La constance bat l'intensité.** Une action faible mais cohérente maintient la trajectoire. *L'arrêt complet, même temporaire, est plus dangereux que la lenteur.* Chaque domaine a un plancher minimal qui survit aux mauvaises semaines.
-6. **Ce qui n'est pas mesuré n'existe pas.** Chaque critère de « Objectif final » a une preuve mesurable. On suit les chiffres, et on **re-priorise tous les trimestres** à partir d'eux — pas à partir de l'humeur du moment.
-7. **Adapté à ton point de départ.** Le plan suppose un départ « moyen ». Commence par une **auto-évaluation de référence** (§3, fin) et décale les échéances selon ton niveau réel sur chaque axe.
+1. **L'action avant la motivation.** La toute première chose à construire — *avant même les quatre socles* — c'est la capacité d'agir sans dépendre de l'envie, de l'inspiration ou de l'humeur. C'est le **socle des socles** : sans elle, rien d'autre ne s'installe durablement. Méthode complète en §3.
+2. **Une boussole, pas un examen.** Le but est de *progresser en continu*, pas de tout cocher d'un coup. Tu auras toujours un domaine « en cours » : c'est l'état normal, pas un échec.
+3. **Les socles d'abord.** Les quatre capacités-socles (santé, attention, apprentissage/mémoire, régulation) multiplient tout le reste. Une année investie ici se rembourse sur les neuf suivantes, dans *chaque* domaine.
+4. **Construis à travers le réel.** Les compétences abstraites ne se travaillent pas dans le vide : elles se bâtissent à travers tes projets concrets — Hybelior, la musique, ChantierHub, les langues, le quotidien. Le plan nomme le **véhicule** de chaque compétence (voir l'annexe).
+5. **1 à 2 domaines en construction active à la fois ; le reste en entretien.** C'est l'antidote direct au sentiment d'être débordé : tu n'es pas censé pousser fort partout en même temps. Un domaine en entretien ne demande que son **minimum quotidien**.
+6. **La constance bat l'intensité.** Une action faible mais cohérente maintient la trajectoire. *L'arrêt complet, même temporaire, est plus dangereux que la lenteur.* Chaque domaine a un plancher minimal qui survit aux mauvaises semaines.
+7. **Ce qui n'est pas mesuré n'existe pas.** Chaque critère de « Objectif final » a une preuve mesurable. On suit les chiffres, et on **re-priorise tous les trimestres** à partir d'eux — pas à partir de l'humeur du moment.
+8. **Adapté à ton point de départ.** Le plan suppose un départ « moyen ». Commence par une **auto-évaluation de référence** (§4, fin) et décale les échéances selon ton niveau réel sur chaque axe.
 
 ---
 
@@ -29,16 +32,18 @@
 
 Pourquoi cet ordre, et pas un autre :
 
-- **Les 4 socles passent en premier** parce qu'ils sont le *substrat* de tout le reste. Apprendre vite, tenir sous pression et produire sont impossibles si tu dors mal, si ton attention est fragmentée et si l'émotion pilote tes décisions. Dans l'année 1, ils se construisent **en parallèle**, mais s'il faut un ordre de dépendance :
+- **Avant les 4 socles : la discipline.** La capacité d'agir sans motivation est en amont de tout. Tu ne peux pas installer un sommeil régulier, des blocs d'attention, une routine d'Anki ou un réflexe de respiration si tu n'agis que les jours où tu en as envie. **On la construit en tout premier** (mois 1-3), puis on l'entretient à vie. C'est le cap déjà inscrit dans Copilote.
+- **Les 4 socles ensuite**, parce qu'ils sont le *substrat* du reste. Apprendre vite, tenir sous pression et produire sont impossibles si tu dors mal, si ton attention est fragmentée et si l'émotion pilote tes décisions. Dans l'année 1, ils se construisent **en parallèle** une fois la discipline en place ; s'il faut un ordre de dépendance :
   **sommeil/santé → attention → apprentissage/mémoire → régulation émotionnelle.**
-  Le sommeil est la base littérale (et ton point faible connu : se coucher trop tard) — il est en amont de l'humeur, de l'attention et de la récupération.
+  Le sommeil est la base littérale (et ton point faible connu : se coucher trop tard).
 - **Le physique arrive tôt** (années 1-3) : les seuils de force et de cardio sont *atteignables, mesurables et motivants*, ils donnent des victoires rapides, et ils dopent l'énergie et l'humeur de tout le reste. En plus, « Santé & récupération » est déjà un socle.
-- **Les connaissances (couverture large)** sont *le cap principal* et un effort **continu dès le jour 1** — jamais « terminé ». On les fait avancer en fond de tâche pendant les dix ans, soutenues par l'Anki (sinon tu oublies à mesure que tu avances).
+- **Les connaissances (couverture large)** sont *le cap principal* et un effort **continu dès le jour 1** — jamais « terminé ». Soutenues par l'Anki (sinon tu oublies à mesure que tu avances).
 - **Le social et l'observation** montent en puissance **une fois l'attention solide**, car ils exigent des *répétitions en situation réelle*. Subtilité : le **réseau et la réputation sont les plus lents à mûrir** (5-10 ans). Donc on **démarre tôt les habitudes relationnelles** même si le bénéfice arrive tard.
-- **La régulation émotionnelle et la reconnaissance de formes se *valident* tard** : on installe les outils dès l'année 1, mais la preuve s'accumule sur des années de vraies situations et d'expérience dans tes domaines.
+- **La régulation émotionnelle et la reconnaissance de formes se *valident* tard** : outils dès l'année 1, mais la preuve s'accumule sur des années de vraies situations et d'expérience dans tes domaines.
 
 | Domaine / Capacité | En construction active | Pourquoi ce timing |
 |---|---|---|
+| **Discipline** (agir sans motivation) | **Mois 1-3** (puis à vie) | **Le socle des socles : rend possible l'installation de tout le reste** |
 | ★ Santé & récupération | Année 1 (puis entretien à vie) | Base littérale ; débloque tout le reste |
 | ★ Attention | Année 1 (puis protection continue) | Substrat de l'apprentissage et de la production |
 | ★ Apprentissage & mémoire | Année 1 (puis usage continu) | Moteur qui produit et fait *tenir* tout le reste |
@@ -51,9 +56,29 @@ Pourquoi cet ordre, et pas un autre :
 
 ---
 
-## 3. Les 4 capacités-socles — à construire en premier
+## 3. Avant tout : la discipline indépendante de la motivation
 
-C'est le cœur de l'année 1. Tant que ces quatre-là ne tournent pas comme des systèmes (pas comme des efforts de volonté), tout le reste avance à perte. On vise l'**installation d'habitudes**, pas la perfection.
+*Le socle des socles.* Tu ne peux pas installer le sommeil, l'attention, l'apprentissage et la régulation si tu n'agis que quand tu en as envie. La première chose à construire — **avant même les quatre capacités-socles** — c'est la capacité d'**agir sans dépendre de la motivation, de l'inspiration ni de l'humeur du moment**. C'est exactement le cap de Copilote : *« devenir une personne fiable dans ses actions, capable de progresser dans n'importe quel domaine sans dépendre de la motivation. »*
+
+**L'idée centrale :** *l'action précède la motivation* (pas l'inverse). On n'attend pas d'avoir envie pour commencer — on commence, et l'envie suit souvent ; mais même si elle ne vient pas, l'action a eu lieu. La répétition crée la stabilité ; la stabilité remplace la motivation.
+
+**La méthode — rendre l'action non négociable :**
+- **Un plancher minimal ridiculement petit, par domaine actif.** Si petit que l'envie n'entre pas en jeu : 1 page, 5 min, une série. *« Agir une fois sans négocier avec soi-même. »* Le but n'est pas la performance du jour, c'est de **ne pas rompre la chaîne**.
+- **Aucun jour totalement vide de progression.** C'est la seule règle dure du plan. Une action faible mais cohérente maintient la trajectoire ; *l'arrêt complet, même temporaire, est plus dangereux que la lenteur.*
+- **Supprimer les points de décision.** Heures fixes, déclencheurs clairs, environnement préparé (tenue de sport sortie la veille, téléphone dans une autre pièce, FL Studio déjà ouvert). Moins tu décides sur le moment, moins la motivation a son mot à dire.
+- **Intentions de mise en œuvre + empilement d'habitudes.** « Quand [X], alors je fais [Y] » — p. ex. *« quand je rentre, je fais ma série avant de m'asseoir. »* Accroche la nouvelle action à une habitude déjà en place.
+- **La « juste marche » (déjà dans Copilote).** L'action est calibrée un cran au-dessus du confort, jamais écrasante, et s'auto-régule selon ton retour. Une marche bien dosée, tu y reviens ; une marche écrasante te fait décrocher. C'est ce qui rend la discipline *tenable* dans la durée — la régularité plutôt que les coups d'éclat.
+- **L'identité plutôt que l'objectif.** Vise *« je suis quelqu'un qui agit chaque jour »* plutôt que *« je veux être discipliné »*. Chaque petite action est un vote pour cette identité.
+
+**Mesure :** le **streak** (jours d'affilée sans rupture) et le taux d'habitudes tenues, dans Copilote. C'est l'indicateur direct de la discipline — bien plus parlant que la performance d'une seule journée.
+
+**Cible (mois 1-3) :** un plancher minimal tenu sans rupture pendant plusieurs semaines, au point que l'action **ne se négocie plus** — tu la fais comme tu te brosses les dents, indépendamment de l'envie. *À partir de là seulement, tu pousses le contenu des quatre socles : la discipline est le véhicule, les socles sont la cargaison.*
+
+---
+
+## 4. Les 4 capacités-socles
+
+Une fois que tu agis sans négocier (§3), tu te sers de cette discipline pour installer les quatre socles. C'est le cœur de l'année 1 (après les premières semaines consacrées à la discipline elle-même). Tant que ces quatre-là ne tournent pas comme des **systèmes** (pas comme des efforts de volonté), tout le reste avance à perte. On vise l'**installation d'habitudes**, pas la perfection.
 
 ### ★ Santé & récupération — *la base littérale*
 **Le sommeil d'abord.** C'est la clé de voûte : il décide de ton humeur, de ton attention et de ta récupération du lendemain.
@@ -82,21 +107,22 @@ Travaille directement ta double tendance : t'hyperfocaliser sur un projet *et* t
 
 ---
 
-## 4. Les 4 phases sur 10 ans
+## 5. Les 4 phases sur 10 ans
 
 | Phase | Années | Thème | En construction active |
 |---|---|---|---|
-| **I — Les fondations** | 1 | Installer les socles, poser les repères, lancer le suivi | Les 4 socles |
+| **I — Les fondations** | 1 | Discipline d'abord, puis installer les socles, poser les repères, lancer le suivi | Discipline → les 4 socles |
 | **II — La base large** | 2-4 | Physique aux seuils ; couverture large ; pratique sociale délibérée | Physique · Connaissances · (Social/Observation : méthodes) |
 | **III — La profondeur & le réel** | 5-7 | Profondeur, résultats réels, formes, régulation validée | Connaissances (profondeur) · Social (réel) · Observation · Régulation |
 | **IV — L'intégration & le rayonnement** | 8-10 | Tenir tous les seuils en même temps ; réseau & réputation | Intégration · Réseau · Ponts |
 
 ### Phase I — Les fondations *(Année 1)*
-Installer les quatre socles comme **systèmes**, poser les repères de départ, démarrer l'habitude physique et la lecture large, choisir le domaine de profondeur, et mettre en place le suivi.
-- [ ] Les 4 socles tournent (voir §3) : sommeil régulier · 1 bloc focus 90 min · Anki quotidien · réflexe respiration.
-- [ ] **Physique :** tenir **3 séances/semaine, 4 semaines d'affilée** ; relever les tests de départ (squat, soulevé, développé, tractions, pompes, un test cardio, écran de mobilité).
-- [ ] **Connaissances :** plan de lecture large lancé + Anki ; **domaine de profondeur choisi = musique & composition** (théorie/harmonie + composer).
-- [ ] **Suivi en place :** la cadence du §6 tourne dans Copilote (habitudes, journal, niveaux du plan).
+**Mois 1-3 : la discipline** (§3) — rendre l'action non négociable. **Mois 3-12 :** se servir de cette discipline pour installer les quatre socles, poser les repères de départ, démarrer l'habitude physique et la lecture large, et choisir le domaine de profondeur.
+- [ ] **Discipline :** un plancher minimal non négociable par domaine actif, **aucun jour totalement vide**, un **streak** qui s'installe — l'action ne se négocie plus (§3)
+- [ ] Les 4 socles tournent (voir §4) : sommeil régulier · 1 bloc focus 90 min · Anki quotidien · réflexe respiration
+- [ ] **Physique :** tenir **3 séances/semaine, 4 semaines d'affilée** ; relever les tests de départ (squat, soulevé, développé, tractions, pompes, un test cardio, écran de mobilité)
+- [ ] **Connaissances :** plan de lecture large lancé + Anki ; **domaine de profondeur choisi = musique & composition** (théorie/harmonie + composer)
+- [ ] **Suivi en place :** la cadence du §7 tourne dans Copilote (habitudes, journal, niveaux du plan)
 
 ### Phase II — La base large *(Années 2-4)*
 Amener le physique aux seuils, bâtir la couverture large, et commencer la **pratique délibérée** du social et de l'analyse.
@@ -137,9 +163,11 @@ Tenir les cinq domaines au seuil **en même temps** — l'intersection rare — 
 
 ---
 
-## 5. Boîte à outils — méthodes par domaine
+## 6. Boîte à outils — méthodes par domaine
 
-*Le §4 dit **quand**. Ceci dit **comment**, en bref, pour aller piocher au besoin.*
+*Le §5 dit **quand**. Ceci dit **comment**, en bref, pour aller piocher au besoin.*
+
+**0 · Discipline.** Plancher minimal non négociable par domaine actif · aucun jour totalement vide (le streak) · supprimer les décisions (heures fixes, environnement préparé) · intentions « quand X → alors Y » · empilement d'habitudes · « la juste marche » calibrée · l'action précède la motivation.
 
 **1 · Physique & santé.** Force : 3-4 séances/sem, mouvements composés (squat, soulevé, développé, tractions), progression de charge puis périodisation. Cardio : 80 % en zone 2 (facile, conversation possible) + 20 % en intervalles. Mixte : 1 séance type Hyrox/sem. Mobilité : 10 min/jour ciblées sur tes points raides. Récupération : sommeil = priorité n°1, deload toutes les 4-6 semaines.
 
@@ -153,7 +181,7 @@ Tenir les cinq domaines au seuil **en même temps** — l'intersection rare — 
 
 ---
 
-## 6. La cadence de suivi
+## 7. La cadence de suivi
 
 Le rythme qui transforme un plan en trajectoire. Tout vit dans **Copilote**.
 
@@ -169,6 +197,7 @@ Le rythme qui transforme un plan en trajectoire. Tout vit dans **Copilote**.
 
 | Domaine | Indicateur clé | Outil |
 |---|---|---|
+| Discipline | **Streak** (jours sans rupture), habitudes tenues | Copilote |
 | Santé & récupération | Sommeil, efficacité, FC repos, variabilité cardiaque | Montre / bague |
 | Physique | Charges aux 5 mouvements, temps cardio, test mixte | Carnet de salle |
 | Connaissances | Cartes Anki tenues, profondeur, projets livrés | Anki + Copilote |
@@ -178,11 +207,11 @@ Le rythme qui transforme un plan en trajectoire. Tout vit dans **Copilote**.
 
 ---
 
-## 7. Feuille de route an par an *(indicative, à adapter)*
+## 8. Feuille de route an par an *(indicative, à adapter)*
 
 | Année | Domaine(s) actifs | Jalons clés |
 |---|---|---|
-| **1** | Les 4 socles | Sommeil régulier · bloc focus 90 min · Anki quotidien · réflexe respiration · base physique + tests de départ · suivi en place |
+| **1** | **Discipline**, puis les 4 socles | **Mois 1-3 : discipline (plancher minimal, streak, jamais zéro)** · puis sommeil régulier · bloc focus 90 min · Anki quotidien · réflexe respiration · base physique + tests de départ · suivi en place |
 | **2** | Physique (force) · Connaissances | Progression de force régulière · plan de lecture + Anki qui tiennent · profondeur musique lancée |
 | **3** | Physique (endurance/mixte) · Connaissances | VO₂max ≥ 50 en vue · seuils de force atteints · couverture large qui s'étoffe |
 | **4** | Social (com., négo) · Observation (méthodes) | Force/endurance/mobilité **validées** · tests de communication passés · BATNA + prémortem en usage réel |
@@ -195,14 +224,15 @@ Le rythme qui transforme un plan en trajectoire. Tout vit dans **Copilote**.
 
 ---
 
-## 8. Garde-fous & état d'esprit
+## 9. Garde-fous & état d'esprit
 
 *Conçus à partir de tes tendances connues — pour que le plan tienne quand la motivation, elle, ne tient pas.*
 
+- **La discipline avant tout :** quand l'envie n'est pas là, tu fais quand même le plancher minimal. C'est non négociable, et c'est précisément l'objet du plan — *l'action précède la motivation*.
 - **Contre le sentiment d'être débordé :** seulement **1 à 2 domaines en construction active**. Les autres ne demandent que leur minimum quotidien. Tu as le *droit* d'avoir des domaines « en cours » — c'est le fonctionnement normal d'un généraliste, pas un retard.
 - **Contre l'hyperfocus :** la rotation trimestrielle et la revue hebdo rattrapent les domaines délaissés ; le timer 60 min coupe les sessions qui dévorent tout le reste.
 - **Contre le coucher tardif :** le sommeil est la clé de voûte, en amont de tout. C'est l'habitude à protéger en priorité absolue — la défendre, c'est défendre les neuf autres axes.
-- **Contre la flemme des corvées :** traite le « quotidien » comme un domaine à *systématiser* (routine hebdo, achats groupés, MiamWeek) pour qu'il ne grignote pas ta charge mentale et ne libère ton attention pour le reste.
+- **Contre la flemme des corvées :** traite le « quotidien » comme un domaine à *systématiser* (routine hebdo, achats groupés, MiamWeek) pour qu'il ne grignote pas ta charge mentale et libère ton attention pour le reste.
 - **Face aux ratés :** un jour ou une semaine manqués ne sont pas un échec. *L'arrêt complet est plus dangereux que la lenteur.* On ne « rattrape » pas — on reprend le minimum, tout de suite.
 - **N'optimise pas tout à la fois :** séquence. La revue régulière fait le travail que la motivation ne fera pas.
 
@@ -222,8 +252,8 @@ Les compétences abstraites se bâtissent à travers ce que tu fais déjà. Voic
 | **Quotidien** (courses, maison, admin) | Soutient la santé · libère l'attention (moins de charge mentale) |
 | **Rêve lucide** | Exploration pour la régulation émotionnelle (peurs, cauchemars) |
 
-**Copilote** est l'instrument de bord de tout ça : la cadence du §6 (habitudes, journal, niveaux 0-100 par domaine, marche calibrée « la juste marche ») y vit déjà. Le cap de l'app — *« devenir capable de progresser dans n'importe quel domaine sans dépendre de la motivation »* — est exactement la philosophie de ce plan.
+**Copilote** est l'instrument de bord de tout ça — et il est déjà construit pour l'étape n°1. Son **cap** (*« devenir capable de progresser dans n'importe quel domaine sans dépendre de la motivation »*), sa règle (*« aucun jour totalement vide de progression »*) et son système **« La juste marche »** existent précisément pour bâtir la discipline indépendante de la motivation. La cadence du §7 (habitudes, streak, journal, niveaux 0-100, marche calibrée) y vit déjà.
 
 ---
 
-*Prochaine étape : ouvre Copilote, fais ton auto-évaluation de référence (§3), et lance la Phase I. Le seul échec possible, c'est l'arrêt complet.*
+*Prochaine étape : ouvre Copilote, fais ton auto-évaluation de référence (§4), et lance la Phase I par la discipline (§3). Le seul échec possible, c'est l'arrêt complet.*
