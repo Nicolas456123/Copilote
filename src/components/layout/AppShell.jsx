@@ -13,6 +13,7 @@ import { useFocusTimer } from '../../hooks/useFocusTimer';
 import { useAI } from '../../hooks/useAI';
 import { useXP } from '../../hooks/useXP';
 import { useWeeklyPlan } from '../../hooks/useWeeklyPlan';
+import { useSkills } from '../../hooks/useSkills';
 
 export default function AppShell() {
   const initDone = useRef(false);
@@ -30,6 +31,7 @@ export default function AppShell() {
   const journalHook = useJournal();
   const focusHook = useFocusTimer();
   const planHook = useWeeklyPlan();
+  const skillsHook = useSkills();
 
   const aiHook = useAI({
     projects: projectsHook.projects,
@@ -46,7 +48,7 @@ export default function AppShell() {
     entries: journalHook.entries,
   });
 
-  const allLoaded = projectsHook.loaded && habitsHook.loaded && settingsHook.loaded && journalHook.loaded;
+  const allLoaded = projectsHook.loaded && habitsHook.loaded && settingsHook.loaded && journalHook.loaded && skillsHook.skillsLoaded;
 
   if (!allLoaded) {
     return (
@@ -64,6 +66,7 @@ export default function AppShell() {
     ...focusHook,
     ...aiHook,
     ...planHook,
+    ...skillsHook,
     streak,
     level,
   };
