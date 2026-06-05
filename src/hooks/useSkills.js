@@ -5,6 +5,7 @@ import {
   applyFeedback, fallbackAction, seedSkills,
   buildSkillSystem, buildSkillPrompt, FEEDBACK,
 } from '../lib/skills';
+import { dictionSkill } from '../lib/diction';
 
 export function useSkills() {
   const [skills, setSkills] = useState([]);
@@ -30,6 +31,14 @@ export function useSkills() {
           parsed = seedSkills();
           updateSetting("plan", JSON.stringify(parsed)).catch(() => {});
         }
+        // Ajout unique de l'axe Diction (entraînement régulier de l'élocution).
+        if (data.dictionSeeded !== '1') {
+          if (!parsed.some(s => s.kind === 'diction')) {
+            parsed = [...parsed, dictionSkill()];
+            updateSetting("plan", JSON.stringify(parsed)).catch(() => {});
+          }
+          updateSetting("dictionSeeded", "1").catch(() => {});
+        }
         skillsRef.current = parsed;
         setSkills(parsed);
       })
@@ -52,6 +61,12 @@ export function useSkills() {
     const skill = skillsRef.current.find(s => s.id === id);
     if (!skill) return;
     setGeneratingId(id);
+    // Axes à contenu curé (diction…) : pas d'IA, on puise dans la librairie.
+    if (skill.kind === 'diction') {
+      updateOne(id, { currentAction: { ...fallbackAction(skill), ai: false, at: new Date().toISOString() } });
+      setGeneratingId(null);
+      return;
+    }
     let action;
     try {
       const r = await callAIJSON(buildSkillSystem(), buildSkillPrompt(skill, correction));
