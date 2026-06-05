@@ -26,7 +26,7 @@ export default function AppShell() {
 
   const projectsHook = useProjects();
   const habitsHook = useHabits();
-  const { streak } = useStreak();
+  const { streak, actedToday, markActed } = useStreak();
   const settingsHook = useSettings();
   const journalHook = useJournal();
   const focusHook = useFocusTimer();
@@ -67,7 +67,11 @@ export default function AppShell() {
     ...aiHook,
     ...planHook,
     ...skillsHook,
+    // Toute action terminée nourrit la série (le score = l'action).
+    complete: async (id, key) => { await skillsHook.complete(id, key); markActed(); },
     streak,
+    actedToday,
+    markActed,
     level,
   };
 
