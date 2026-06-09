@@ -32,7 +32,7 @@ Je suis Nicolas, ingénieur bâtiment (chargé d'affaires BTP). Je gère plusieu
 
 ## Ce qu'on a construit jusqu'ici
 
-On a créé un prototype React (fichier unique `copilote.jsx`) dans Claude.ai avec les features suivantes :
+Le prototype initial — un fichier React unique créé dans Claude.ai — comportait les features suivantes :
 
 ### Accueil (Dashboard)
 - Salutation contextuelle (heure du jour, alerte si tard le soir)
@@ -92,4 +92,4 @@ Transforme ce prototype en une **vraie application** complète et déployable. V
 - Déploiement Vercel
 
 ## Priorité
-Commence par l'architecture et le routing, puis les composants un par un. Demande-moi si tu as besoin de précisions. Le fichier `copilote.jsx` actuel est dans le dossier comme référence.
+Commence par l'architecture et le routing, puis les composants un par un. Demande-moi si tu as besoin de précisions.
