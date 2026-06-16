@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Spinner from '../ui/Spinner';
+import LockIn from './LockIn';
 import { DOMAINS } from '../../lib/constants';
 import { FEEDBACK, tierOf, tierProgress, fallbackAction } from '../../lib/skills';
 
@@ -8,6 +9,7 @@ export default function SkillCard({ skill, generating, complete, generate, setLe
   const [fixing, setFixing] = useState(false);
   const [note, setNote] = useState("");
   const [editing, setEditing] = useState(false);
+  const [locked, setLocked] = useState(false);
 
   const tier = tierOf(skill.level);
   const dom = DOMAINS[skill.domain];
@@ -59,6 +61,15 @@ export default function SkillCard({ skill, generating, complete, generate, setLe
               </>
             )}
           </div>
+
+          {/* Lock-in : passer à l'action, là, maintenant — pas re-décider */}
+          <button
+            onClick={() => setLocked(true)}
+            disabled={generating}
+            className="w-full mb-2.5 py-2.5 rounded-xl bg-navy text-white text-[14px] font-bold disabled:opacity-40 hover:opacity-90 transition-opacity"
+          >
+            🔒 Se lock-in — juste 1 minute
+          </button>
 
           {/* Retour en un tap → auto-régulation */}
           <div className="grid grid-cols-4 gap-1.5">
@@ -144,6 +155,14 @@ export default function SkillCard({ skill, generating, complete, generate, setLe
             </div>
           )}
         </div>
+      )}
+
+      {locked && (
+        <LockIn
+          action={act.action}
+          onFeedback={key => { complete(skill.id, key); setLocked(false); }}
+          onClose={() => setLocked(false)}
+        />
       )}
     </div>
   );

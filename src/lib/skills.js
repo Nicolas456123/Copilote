@@ -1,4 +1,5 @@
 import { NICOLAS_CONTEXT, DOMAINS } from './constants';
+import { dictionExercise, dictionSkill } from './diction';
 
 // ── Le système "La juste marche" ────────────────────────────────────────
 // Chaque compétence a un niveau 0→100. Le système propose toujours UNE
@@ -51,6 +52,8 @@ export function applyFeedback(level, key) {
 // Action de secours (sans IA) : le système reste utilisable hors-ligne
 // ou si la clé API manque. Toujours calibrée par palier, orientée objectif.
 export function fallbackAction(skill) {
+  // Axes à contenu curé : on puise dans leur librairie dédiée.
+  if (skill.kind === 'diction') return dictionExercise(skill.level);
   const t = tierOf(skill.level).index;
   const goal = skill.midTerm || skill.name;
   const templates = [
@@ -124,7 +127,7 @@ export function seedSkills() {
       midTerm: "Mettre en place une routine hebdo simple pour courses + ménage.",
     },
   ];
-  return base.map((s, i) => ({
+  const seeded = base.map((s, i) => ({
     id: `sk-${Date.now()}-${i}`,
     name: DOMAINS[s.domain]?.label || s.domain,
     domain: s.domain,
@@ -136,4 +139,5 @@ export function seedSkills() {
     history: [],
     updatedAt: new Date().toISOString(),
   }));
+  return [...seeded, dictionSkill()];
 }
